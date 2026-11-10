@@ -10,7 +10,7 @@
     "#GTA6",
     "#Games"
   ],
-  "duration_seconds": 20.021333,
+  "duration_seconds": 20.033008,
   "requested_duration_seconds": 20,
   "demo": true,
   "publication_allowed": false,
@@ -47,7 +47,8 @@
     "video": "H.264 veryfast CRF23; audio copied; original engine output preserved locally",
     "original_video_sha256": "80bf77fd748edeedd1dee000fb38672dd20b0ad88c9a9867a723f61bd7f55439",
     "reason": "GitHub connector 16 MiB request limit",
-    "validation": "existing QC reexecuted and passed"
+    "validation": "existing QC reexecuted and passed",
+    "original_duration_seconds": 20.021333
   },
   "files": {
     "video": {
