@@ -1,0 +1,55 @@
+5576  socketpair(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0, [4, 5]) = 0
+5576  getsockname(4, {sa_family=AF_UNIX}, [128 => 2]) = 0
+5576  getsockname(5, {sa_family=AF_UNIX}, [128 => 2]) = 0
+5576  socket(AF_INET, SOCK_STREAM|SOCK_CLOEXEC, IPPROTO_TCP) = 6
+5576  setsockopt(6, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
+5576  bind(6, {sa_family=AF_INET, sin_port=htons(49461), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+5576  listen(6, 2048)                   = 0
+5576  accept4(6, {sa_family=AF_INET, sin_port=htons(49028), sin_addr=inet_addr("127.0.0.1")}, [16], SOCK_CLOEXEC) = 7
+5576  getsockname(7, {sa_family=AF_INET, sin_port=htons(49461), sin_addr=inet_addr("127.0.0.1")}, [128 => 16]) = 0
+5576  accept4(6, 0x7ffeaa56c108, [16], SOCK_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+5576  getsockname(7, {sa_family=AF_INET, sin_port=htons(49461), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+5576  setsockopt(7, SOL_TCP, TCP_NODELAY, [1], 4) = 0
+5576  getsockname(7, {sa_family=AF_INET, sin_port=htons(49461), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+5576  getpeername(7, {sa_family=AF_INET, sin_port=htons(49028), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+5576  recvfrom(7, "GET /dry-runs/0612f07af9994f2d82"..., 262144, 0, NULL, NULL) = 160
+5577  sendto(5, "\0", 1, 0, NULL, 0)    = 1
+5576  recvfrom(4, "\0", 4096, 0, NULL, NULL) = 1
+5576  recvfrom(4, 0x2c8b6640, 4096, 0, NULL, NULL) = -1 EAGAIN (Resource temporarily unavailable)
+5576  sendto(7, "HTTP/1.1 200 OK\r\ndate: Tue, 10 N"..., 146, 0, NULL, 0) = 146
+5576  sendto(7, "{\"id\":\"0612f07af9994f2d82b78c754"..., 5061, 0, NULL, 0) = 5061
+5576  accept4(6, {sa_family=AF_INET, sin_port=htons(49036), sin_addr=inet_addr("127.0.0.1")}, [16], SOCK_CLOEXEC) = 7
+5576  getsockname(7, {sa_family=AF_INET, sin_port=htons(49461), sin_addr=inet_addr("127.0.0.1")}, [128 => 16]) = 0
+5576  accept4(6, 0x7ffeaa56c108, [16], SOCK_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+5576  getsockname(7, {sa_family=AF_INET, sin_port=htons(49461), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+5576  setsockopt(7, SOL_TCP, TCP_NODELAY, [1], 4) = 0
+5576  getsockname(7, {sa_family=AF_INET, sin_port=htons(49461), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+5576  getpeername(7, {sa_family=AF_INET, sin_port=htons(49036), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+5576  recvfrom(7, "POST /dry-runs HTTP/1.1\r\nAccept-"..., 262144, 0, NULL, NULL) = 1169
+5576  sendto(5, "\0", 1, 0, NULL, 0)    = 1
+5576  recvfrom(4, "\0", 4096, 0, NULL, NULL) = 1
+5576  recvfrom(4, 0x2cf044c0, 4096, 0, NULL, NULL) = -1 EAGAIN (Resource temporarily unavailable)
+5577  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=5578, si_uid=1000, si_status=0, si_utime=4 /* 0.04 s */, si_stime=1 /* 0.01 s */} ---
+5577  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=5579, si_uid=1000, si_status=0, si_utime=142 /* 1.42 s */, si_stime=37 /* 0.37 s */} ---
+5577  sendto(5, "\0", 1, 0, NULL, 0)    = 1
+5576  recvfrom(4, "\0", 4096, 0, NULL, NULL) = 1
+5576  recvfrom(4, 0x2ccb8f60, 4096, 0, NULL, NULL) = -1 EAGAIN (Resource temporarily unavailable)
+5576  sendto(7, "HTTP/1.1 200 OK\r\ndate: Tue, 10 N"..., 147, 0, NULL, 0) = 147
+5576  sendto(7, "{\"mode\":\"dry-run\",\"published\":fa"..., 10487, 0, NULL, 0) = 10487
+5576  accept4(6, {sa_family=AF_INET, sin_port=htons(49046), sin_addr=inet_addr("127.0.0.1")}, [16], SOCK_CLOEXEC) = 7
+5576  getsockname(7, {sa_family=AF_INET, sin_port=htons(49461), sin_addr=inet_addr("127.0.0.1")}, [128 => 16]) = 0
+5576  accept4(6, 0x7ffeaa56c108, [16], SOCK_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+5576  getsockname(7, {sa_family=AF_INET, sin_port=htons(49461), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+5576  setsockopt(7, SOL_TCP, TCP_NODELAY, [1], 4) = 0
+5576  getsockname(7, {sa_family=AF_INET, sin_port=htons(49461), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+5576  getpeername(7, {sa_family=AF_INET, sin_port=htons(49046), sin_addr=inet_addr("127.0.0.1")}, [16]) = 0
+5576  recvfrom(7, "POST /publish HTTP/1.1\r\nAccept-E"..., 262144, 0, NULL, NULL) = 195
+5577  sendto(5, "\0", 1, 0, NULL, 0)    = 1
+5576  recvfrom(4, "\0", 4096, 0, NULL, NULL) = 1
+5576  recvfrom(4, 0x2ccb8f90, 4096, 0, NULL, NULL) = -1 EAGAIN (Resource temporarily unavailable)
+5576  sendto(7, "HTTP/1.1 423 Locked\r\ndate: Tue, "..., 149, 0, NULL, 0) = 149
+5576  sendto(7, "{\"error\":\"live_disabled\",\"messag"..., 104, 0, NULL, 0) = 104
+5576  --- SIGTERM {si_signo=SIGTERM, si_code=SI_USER, si_pid=5497, si_uid=1000} ---
+5576  --- SIGTERM {si_signo=SIGTERM, si_code=SI_TKILL, si_pid=5576, si_uid=1000} ---
+5577  +++ killed by SIGTERM +++
+5576  +++ killed by SIGTERM +++

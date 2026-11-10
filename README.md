@@ -111,3 +111,24 @@ assinado e não oferece resistência contra adulteração coordenada de arquivos
 Veja `INTEGRACOES.md` para credenciais, permissões, fontes oficiais consultadas,
 limitações da investigação e critérios para publicação em aprovação e automática.
 Nenhuma conexão externa ou credencial foi configurada no Codex para este projeto.
+
+
+
+## Fase 3 — publicação em dry-run (novo)
+
+Módulo separado `attpublish`: recebe MP4, PNG e metadados; valida arquivos reais,
+prepara JPEG para Instagram e compila pedidos do YouTube pelo SDK oficial.
+A autenticação, os IDs e as confirmações são **simulados**. Nenhum pedido é
+enviado aos provedores; a publicação real é bloqueada mesmo com variáveis de
+credenciais configuradas. O motor `attgames` e seus testes continuam preservados.
+
+```bash
+uv sync --locked
+uv run attpublish dry-run --manifest examples/publication-dry-run.json
+uv run uvicorn attpublish.api:app --host 127.0.0.1 --port 8001
+uv run pytest -q
+```
+
+Documentação: [publicação e credenciais](docs/PUBLICACAO_FASE3.md),
+[ChatGPT Work](docs/CHATGPT_WORK.md) e [resultado dos testes](docs/PHASE3_TEST_REPORT.md).
+Não há adaptador Metricool nem herança de tokens do ChatGPT.

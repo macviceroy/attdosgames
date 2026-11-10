@@ -1,0 +1,39 @@
+{
+  "mode": "dry-run",
+  "video": "data/ddc55657196a4ac782048f0ba838e022/final.mp4",
+  "cover": "data/ddc55657196a4ac782048f0ba838e022/capa.png",
+  "title": "ATT DOS GAMES — teste offline",
+  "description": "Demonstração técnica. Não é notícia verificada. Nenhum envio real autorizado.",
+  "hashtags": [
+    "ATTDOSGAMES",
+    "GTAVI",
+    "Games"
+  ],
+  "platforms": [
+    "instagram",
+    "youtube"
+  ],
+  "made_for_kids": null,
+  "authentication": {
+    "instagram": {
+      "simulated": true,
+      "subject": "sim_instagram_attdosgames",
+      "scopes": [
+        "instagram_business_basic",
+        "instagram_business_content_publish"
+      ],
+      "expires_at": "2099-01-01T00:00:00Z",
+      "thumbnail_capability": "unknown"
+    },
+    "youtube": {
+      "simulated": true,
+      "subject": "sim_youtube_attdosgames",
+      "scopes": [
+        "https://www.googleapis.com/auth/youtube.upload",
+        "https://www.googleapis.com/auth/youtube.readonly"
+      ],
+      "expires_at": "2099-01-01T00:00:00Z",
+      "thumbnail_capability": "unknown"
+    }
+  }
+}

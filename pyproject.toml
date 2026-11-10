@@ -1,10 +1,11 @@
 [project]
 name = "att-dos-games"
-version = "0.1.0"
+version = "0.2.0"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "espeakng-loader==0.2.4",
     "fastapi==0.115.12",
+    "google-api-python-client==2.182.0",
     "pillow==11.2.1",
     "uvicorn==0.34.2",
 ]
@@ -20,7 +21,7 @@ requires = ["hatchling==1.27.0"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["attgames"]
+packages = ["attgames", "attpublish"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
@@ -30,3 +31,5 @@ pythonpath = ["."]
 
 [project.scripts]
 attgames = "attgames.__main__:main"
+
+attpublish = "attpublish.__main__:main"

@@ -8,3 +8,10 @@ Obrigatório pt-BR explícito; nunca usar pt-PT como fallback.
 Preservar idempotência transacional. Publicação de estado remoto desconhecido
 exige reconciliação antes de nova tentativa; nunca repetir cegamente upload/post.
 Não criar endpoints de fornecedores por suposição; consultar documentação oficial.
+
+# Fase 3 de integração
+`attpublish/` é separado do motor e permite somente dry-run offline.
+Use `uv run attpublish dry-run --manifest examples/publication-dry-run.json`.
+Nunca substituir identidades sim_* por tokens, nem tratar simulated_confirmed
+como publicação. O CLI/API antigo de produção continua bloqueado.
+A API REST nova não é um endpoint MCP; docs/CHATGPT_WORK.md explica a ponte pendente.

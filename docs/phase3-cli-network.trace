@@ -1,0 +1,6 @@
+5508  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=5509, si_uid=1000, si_status=0, si_utime=3 /* 0.03 s */, si_stime=4 /* 0.04 s */} ---
+5508  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=5510, si_uid=1000, si_status=0, si_utime=153 /* 1.53 s */, si_stime=33 /* 0.33 s */} ---
+5508  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=5530, si_uid=1000, si_status=0, si_utime=7 /* 0.07 s */, si_stime=7 /* 0.07 s */} ---
+5508  sendfile(4, 3, [0] => [70857], 8388608) = 70857
+5508  sendfile(4, 3, [70857], 8388608)  = 0
+5508  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=5533, si_uid=1000, si_status=0, si_utime=153 /* 1.53 s */, si_stime=38 /* 0.38 s */} ---

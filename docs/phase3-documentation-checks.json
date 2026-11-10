@@ -1,0 +1,56 @@
+[
+  {
+    "key": "instagram-publishing",
+    "url": "https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/content-publishing",
+    "status": 200,
+    "sha256": "fc54495003bcb2a69eda3c4b66ac0880e8454e9332b25f5772831d092b7b071b",
+    "retrieved_at": "2026-11-10T06:33:51.302836+00:00"
+  },
+  {
+    "key": "instagram-media",
+    "url": "https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media/",
+    "status": 200,
+    "sha256": "b204bd2e2afc4661309f1018c35b2b31f6131fb3139d28da4239d6c21fd461f7",
+    "retrieved_at": "2026-11-10T06:33:51.301314+00:00"
+  },
+  {
+    "key": "youtube-insert",
+    "url": "https://developers.google.com/youtube/v3/docs/videos/insert",
+    "status": 200,
+    "sha256": "8349ae73e0df1226a60ceb2692a19ff24dd2f85646fa788cab8b20b2daf21875",
+    "retrieved_at": "2026-11-10T06:33:51.376044+00:00"
+  },
+  {
+    "key": "youtube-resumable",
+    "url": "https://developers.google.com/youtube/v3/guides/using_resumable_upload_protocol",
+    "status": 200,
+    "sha256": "02757958c788184d52fccbe0d26a93b23fb369c3ac28575dc952320bf6535ac3",
+    "retrieved_at": "2026-11-10T06:33:51.551526+00:00"
+  },
+  {
+    "key": "youtube-thumbnails",
+    "url": "https://developers.google.com/youtube/v3/docs/thumbnails/set",
+    "status": 200,
+    "sha256": "13e79aea0448a82bada689ee25f76d8d267bb4822d63970dfa6dd0b93136c5de",
+    "retrieved_at": "2026-11-10T06:33:51.342792+00:00"
+  },
+  {
+    "key": "youtube-help-thumbnails",
+    "url": "https://support.google.com/youtube/answer/72431?hl=en",
+    "status": 200,
+    "sha256": "e7f6a8abf7a5fdbc5259c9bb3a25ea369183a8b8b3d1b44f5094d842817383a8",
+    "retrieved_at": "2026-11-10T06:33:51.763654+00:00"
+  },
+  {
+    "key": "metricool",
+    "url": "https://metricool.com/api/",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "key": "chatgpt-connect",
+    "url": "https://developers.openai.com/apps-sdk/deploy/connect-chatgpt/",
+    "status": 200,
+    "sha256": "0c4f496da1f93c4612b63f978e82a7c2ddb2b07c24621578e83102a2511bedff",
+    "retrieved_at": "2026-11-10T06:55:19.005592+00:00"
+  }
+]
