@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://developers.google.com/youtube/v3/docs/videos/insert",
+    "status": 200,
+    "bytes": 228929,
+    "retrieved_at": "2026-11-10T05:49:00.091311+00:00"
+  },
+  {
+    "url": "https://developers.google.com/youtube/v3/guides/using_resumable_upload_protocol",
+    "status": 200,
+    "bytes": 151332,
+    "retrieved_at": "2026-11-10T05:49:00.757760+00:00"
+  },
+  {
+    "url": "https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/content-publishing",
+    "status": 200,
+    "bytes": 19781,
+    "retrieved_at": "2026-11-10T05:49:01.432816+00:00"
+  },
+  {
+    "url": "https://help.metricool.com/en/article/api-access-1k5g8k6/",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.rockstargames.com/newswire",
+    "status": 200,
+    "bytes": 4133,
+    "retrieved_at": "2026-11-10T05:49:01.857303+00:00"
+  }
+]

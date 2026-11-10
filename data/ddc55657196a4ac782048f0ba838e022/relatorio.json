@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "phase": 1,
+  "demo": true,
+  "job_id": "ddc55657196a4ac782048f0ba838e022",
+  "sources": [],
+  "research_status": "not_connected_no_factual_news_claims",
+  "assets": [
+    {
+      "file": "scene-00.png",
+      "sha256": "4d841f12094d285649700fe629092d5251ffffa89e80bd18cd950805f6e001d9",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-01.png",
+      "sha256": "8597bebfe55a4315ffe95c2f7d7dc7b6c192afedbe4bef05e3ca252864573363",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-02.png",
+      "sha256": "7230f6705c58c90b0d0e4f59df4dcabd2a8193fb4aaa06bb8124c4e42bfe81ef",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-03.png",
+      "sha256": "5ef17a61f0086526cd38a6629fc35dd2583870d6a8b8c3dfe9cbc8c5da3f660a",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-04.png",
+      "sha256": "6841b673f7740675992487b65b0bbd7964e178249b4fe55c0bc786475f301088",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-05.png",
+      "sha256": "27191f20f03c3e738034e1d8e98c09b5d41ecaf7b8fc4a54a7298fc18863eb4c",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-06.png",
+      "sha256": "31f78240fb874c053cea8d9eb79adadc6730ec2e4a89f3b44b8fa4f475ce66c2",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-07.png",
+      "sha256": "a1d7bd0d6e68258703d22b0e2a4e4d7201439ae7ee36387477abbe671e38fde7",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-08.png",
+      "sha256": "7274c75deac3f31c77fd8780c8ed3421a8ef02fcc5a696b6a87f3cdb35df9ace",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-09.png",
+      "sha256": "984fc198e5b5204e541bcac6370c1c04380fb99c7e32e7f4131a695fe2a594f0",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-10.png",
+      "sha256": "cc2f79f0314921aecbd95377ff76c86aaa4f1c1c11395bfdc1a37de37ce2ab34",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-11.png",
+      "sha256": "97846767d1a874c7e2da3f7f215723c541e0db11bad256c6ac5bed9746e1d8a4",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-12.png",
+      "sha256": "72a35c389181f42fae21caacf3640e04d51c4dd0c49cb25a16390e69f60970bc",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    },
+    {
+      "file": "scene-13.png",
+      "sha256": "a9d5b0c977290df7435496dec5022837017c094b16f24bba054eaa2a4b51f61a",
+      "license": "CC0-1.0",
+      "creator": "ATT DOS GAMES pipeline",
+      "origin": "procedural original artwork",
+      "commercial_use": true
+    }
+  ],
+  "voice": {
+    "provider": "espeak-ng",
+    "voice": "pt-br",
+    "language": "pt-BR",
+    "voice_manifest": "Portuguese (Brazil)",
+    "human_accent_review": "pending"
+  },
+  "music": null,
+  "artwork_license": "CC0-1.0: arte procedural original dedicada ao domínio público",
+  "font_license": "DejaVu/Bitstream Vera — brand/DejaVu-LICENSE.txt; custom fonts: respective sidecar",
+  "subtitle_precision": "phrase-level; each utterance fitted into its caption interval",
+  "hashes": {
+    "clip-07.mp4": "f0d1a3777d1f05d4ec787c9e2b9daba6f4aae7b9feb8e0ed86af2b92a61313f2",
+    "clip-02.mp4": "ca5d82def22767bca1525e46e74c911563e0ae53247e4080195f3c891817cd0d",
+    "scene-10.png": "cc2f79f0314921aecbd95377ff76c86aaa4f1c1c11395bfdc1a37de37ce2ab34",
+    "voice-06.wav": "9baa1bccd11a31dceb2e4f450e7e262d3a2b21c34f09e16d34dfb3e249638189",
+    "scene-09.png": "984fc198e5b5204e541bcac6370c1c04380fb99c7e32e7f4131a695fe2a594f0",
+    "clip-13.mp4": "1677ca6efb59c74ff9d5c983136391966216128ebe6dcc262dc8dd7dce9768d4",
+    "scene-06.png": "31f78240fb874c053cea8d9eb79adadc6730ec2e4a89f3b44b8fa4f475ce66c2",
+    "voice-11.wav": "523d40107201cd9262990e1330dc4e1cbab9a301923bb09fa35aea75b7c90d2c",
+    "voice-05.wav": "cafc5ff4db741f04250dd2790857f39e8e8ae6355435c92fa19549afdd7e4ea7",
+    "clip-10.mp4": "cbcc96ff3d030cf0cb5c4d652a44c3a5048e395ddb0a938de0eacf7516170a74",
+    "scene-03.png": "5ef17a61f0086526cd38a6629fc35dd2583870d6a8b8c3dfe9cbc8c5da3f660a",
+    "scene-12.png": "72a35c389181f42fae21caacf3640e04d51c4dd0c49cb25a16390e69f60970bc",
+    "scene-01.png": "8597bebfe55a4315ffe95c2f7d7dc7b6c192afedbe4bef05e3ca252864573363",
+    "legendas.srt": "8b4bf588dbb81d4439143be6930ef758d062789b489dc0a5cdc24a410e5a68b5",
+    "voice-13.wav": "d4ebef76ae0f0ffb685652a3355c3b9401f0aaf9e149ec9febe39e2610f0746c",
+    "clip-03.mp4": "8115f2222c82574c36cb18f49881cde6c6d2139ce1176dfb032dce55b28103a3",
+    "scene-13.png": "a9d5b0c977290df7435496dec5022837017c094b16f24bba054eaa2a4b51f61a",
+    "capa.png": "f498ee3f5808362e28e98d64079b1dd4fa672c20ef642f0e83edd5b9fa209543",
+    "scene-08.png": "7274c75deac3f31c77fd8780c8ed3421a8ef02fcc5a696b6a87f3cdb35df9ace",
+    "scene-11.png": "97846767d1a874c7e2da3f7f215723c541e0db11bad256c6ac5bed9746e1d8a4",
+    "concat.txt": "e6242c9ceb79628131f38547bc72d5722b837ab52f2828cdc7e6ddd85630a169",
+    "clip-09.mp4": "7192a3e67f8cdfff337254ae43fd08afa245cfd53f6524a442ab98cf6e5f52a8",
+    "script.json": "bd02448a0918d670efa31e4e5d5b83dd46e49816eac817c86974392ada578d03",
+    "scene-04.png": "6841b673f7740675992487b65b0bbd7964e178249b4fe55c0bc786475f301088",
+    "clip-04.mp4": "6b9963f88802bb49c527ff78d016759dc24eb7e20766ebf063cebf2ba1c43e15",
+    "voice-00.wav": "e8395217bce11fd45047f6ad61fbdd93f964a80d203ca3f21dc44a7c30a297aa",
+    "clip-08.mp4": "a7afd7967a0eb0953dc45bf9e914f7af4568b2f096c2ca8778ef41971996b12e",
+    "final.mp4": "ce952854bd2caf17c8c331b27218b5a90cd8de97fa6f10d52c6c4cf10b882873",
+    "voice-10.wav": "24fd6dc68678974f763a0bd193710b1d498cd89f5c54186b52191085da7e4d95",
+    "clip-00.mp4": "35f4f164c5f57029740fe000849b824fae22596c93b8d8c36af9373de0a87962",
+    "voice-03.wav": "24bd88570a4c93b96466a50c3b32d7dede91621a9d91ad81dee6c14acbe43d36",
+    "voice-07.wav": "9fb8211d8422146560d7c950af743d1403912f2ec2bb857484f8d70c4ff8c7a1",
+    "scene-05.png": "27191f20f03c3e738034e1d8e98c09b5d41ecaf7b8fc4a54a7298fc18863eb4c",
+    "titulo.txt": "df5092d934ccfe011f7b0b3e9a1bfe19b3c40abd5e40fc32a543ed2d73107cd3",
+    "voice-12.wav": "64ae44f4b1f750e0ef2db079248f637696b32939733798bec04486e92a4c90eb",
+    "voice-02.wav": "267370eb0d452bd8a989d07b3e84f63a8680b83b69b27857aa24741bbbb49210",
+    "voice-04.wav": "c2ab97cb59a838bf2838d4ffb518d578f637645e407eb9f3e2fa5f3e3bb10281",
+    "scene-00.png": "4d841f12094d285649700fe629092d5251ffffa89e80bd18cd950805f6e001d9",
+    "voice-09.wav": "278025695c3f0889d1a1af6c105030ac67d68aae4933c22a085ed11e58511fbf",
+    "clip-05.mp4": "836a1de562a414452c46a956ead1b1e44bed9e0919649a2b3ac602b1d84ac500",
+    "clip-11.mp4": "ca9cf51bea33ecd7d45c7e930ae175e48a57dcd4f1b107058c4a60796f337d4a",
+    "clip-06.mp4": "8772416f2d539d5159d4ff0c47d9cdaf11ec0b340cb4416750cfa217674e38ef",
+    "voice-08.wav": "8e43ab56d6a25d7f3eab4822c551fbb2dc59372fa6dd0ed182d18f2aaa01f699",
+    "clip-01.mp4": "547a9be15796dc775e9cdd075fe82dcf7a1dcefd6fad39f09aebe1065081fc67",
+    "voice-01.wav": "33342299576602074ab07c2dc6688f9d0efefee236358a05fd1f1923126bfdf6",
+    "scene-07.png": "a1d7bd0d6e68258703d22b0e2a4e4d7201439ae7ee36387477abbe671e38fde7",
+    "scene-02.png": "7230f6705c58c90b0d0e4f59df4dcabd2a8193fb4aaa06bb8124c4e42bfe81ef",
+    "clip-12.mp4": "91a39cbd4cde86534f25b1de53471a6786254e14b639a38fc72e534ac971a521",
+    "legenda.txt": "74d2344bd6359ded5a7d29bcece2fb72cf9cb5906f0779c67cee8fbd4a8d31ed"
+  },
+  "export_variant": "GitHub: MP4s reencoded H.264 veryfast CRF23, audio stream copied; original inputs retained",
+  "original_final_sha256": "9e2109c5f573c3ac8c642aa33fc4137c72892908dd75d81af841983ff0993fd7"
+}

@@ -1,0 +1,24 @@
+{
+  "technical_pass": true,
+  "checks": {
+    "duration": true,
+    "resolution": true,
+    "codecs": true,
+    "audio_timeline": true,
+    "decode": true,
+    "audible_audio": true,
+    "cuts_1_to_3_seconds": true,
+    "speech_speed": true,
+    "timeline": true,
+    "subtitle_phrase_sync": true,
+    "inputs_and_outputs_integrity": true,
+    "rights": true,
+    "pt_BR_voice_selection": true
+  },
+  "publication_allowed": false,
+  "blocking_reasons": [
+    "Fase 1: publicação desativada",
+    "Revisão humana de sotaque, conteúdo e direitos pendente",
+    "Demo sem pesquisa factual: não publicar como notícia"
+  ]
+}
