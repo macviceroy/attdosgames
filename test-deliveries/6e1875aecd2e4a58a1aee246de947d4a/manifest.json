@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "job_id": "6e1875aecd2e4a58a1aee246de947d4a",
+  "theme": "Radar neon edição quatro",
+  "title": "GTA VI: Radar neon edição quatro | DEMONSTRAÇÃO ATT DOS GAMES",
+  "description": "DEMONSTRAÇÃO TÉCNICA — sem notícias verificadas. Arte original, sem imagens do jogo. @attdosgames",
+  "hashtags": [
+    "#ATTDOSGAMES",
+    "#GTAVI",
+    "#GTA6",
+    "#Games"
+  ],
+  "duration_seconds": 20.021333,
+  "requested_duration_seconds": 20,
+  "demo": true,
+  "publication_allowed": false,
+  "metricool_integration_performed_by_codex": false,
+  "hosting_purpose": "temporary_public_github_delivery_test",
+  "expires_at": null,
+  "quality": {
+    "technical_pass": true,
+    "checks": {
+      "duration": true,
+      "resolution": true,
+      "codecs": true,
+      "audio_timeline": true,
+      "decode": true,
+      "audible_audio": true,
+      "cuts_1_to_3_seconds": true,
+      "speech_speed": true,
+      "timeline": true,
+      "subtitle_phrase_sync": true,
+      "inputs_and_outputs_integrity": true,
+      "rights": true,
+      "pt_BR_voice_selection": true
+    },
+    "publication_allowed": false,
+    "blocking_reasons": [
+      "Fase 1: publicação desativada",
+      "Revisão humana de sotaque, conteúdo e direitos pendente",
+      "Demo sem pesquisa factual: não publicar como notícia"
+    ]
+  },
+  "sources": [],
+  "license_summary": "Original procedural artwork; DejaVu font license in brand/DejaVu-LICENSE.txt; no gameplay or music",
+  "delivery_export": {
+    "video": "H.264 veryfast CRF23; audio copied; original engine output preserved locally",
+    "original_video_sha256": "80bf77fd748edeedd1dee000fb38672dd20b0ad88c9a9867a723f61bd7f55439",
+    "reason": "GitHub connector 16 MiB request limit",
+    "validation": "existing QC reexecuted and passed"
+  },
+  "files": {
+    "video": {
+      "url": "https://raw.githubusercontent.com/macviceroy/attdosgames/5d7bcff63942f2f14e066b0a91f6e139f22603f6/test-deliveries/6e1875aecd2e4a58a1aee246de947d4a/video.mp4",
+      "sha256": "8493d22444d099e352b0dc35a50a19b7f4fc65d3e136c0846f987d3c73e17552",
+      "bytes": 5007331,
+      "mime_type": "video/mp4"
+    },
+    "cover": {
+      "url": "https://raw.githubusercontent.com/macviceroy/attdosgames/5d7bcff63942f2f14e066b0a91f6e139f22603f6/test-deliveries/6e1875aecd2e4a58a1aee246de947d4a/cover.png",
+      "sha256": "683ba69ecedda975d81672af371baa44feaf04a67f1248cbcbbf50f736df92f7",
+      "bytes": 68326,
+      "mime_type": "image/png"
+    }
+  },
+  "hash_algorithm": "SHA-256",
+  "resolution": {
+    "width": 1080,
+    "height": 1920
+  },
+  "tests_summary": "60 passed; 1 existing Starlette/AnyIO deprecation warning"
+}
