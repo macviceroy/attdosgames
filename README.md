@@ -132,3 +132,9 @@ uv run pytest -q
 Documentação: [publicação e credenciais](docs/PUBLICACAO_FASE3.md),
 [ChatGPT Work](docs/CHATGPT_WORK.md) e [resultado dos testes](docs/PHASE3_TEST_REPORT.md).
 Não há adaptador Metricool nem herança de tokens do ChatGPT.
+
+## Entrega temporária ao Work/agente externo
+
+`attpublish.handoff` disponibiliza manifesto, MP4, PNG e JPEG por URLs assinadas,
+expiráveis e revogáveis, sem publicar. Requer hospedagem HTTPS autorizada para
+consumo externo. [Instruções Work/Metricool](docs/HANDOFF_WORK_METRICOOL.md).
