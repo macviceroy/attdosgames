@@ -68,9 +68,17 @@ jobs:
           Copy-Item docs/licenses dist/ATT-DOS-GAMES-Studio/licenses -Recurse
 
       - name: Test packaged worker, FFmpeg and render
+        timeout-minutes: 5
         shell: pwsh
         run: |
-          $process = Start-Process -FilePath dist/ATT-DOS-GAMES-Studio/ATT-DOS-GAMES-Studio.exe -ArgumentList '--self-test' -Wait -PassThru
+          $env:ATT_STUDIO_LOG = Join-Path $env:RUNNER_TEMP 'att-studio-self-test.log'
+          $process = Start-Process -FilePath dist/ATT-DOS-GAMES-Studio/ATT-DOS-GAMES-Studio.exe -ArgumentList '--self-test' -PassThru
+          if (-not $process.WaitForExit(240000)) {
+            Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
+            if (Test-Path $env:ATT_STUDIO_LOG) { Get-Content $env:ATT_STUDIO_LOG }
+            throw 'Packaged self-test timed out after four minutes'
+          }
+          if (Test-Path $env:ATT_STUDIO_LOG) { Get-Content $env:ATT_STUDIO_LOG }
           if ($process.ExitCode -ne 0) { throw "Packaged self-test failed: $($process.ExitCode)" }
 
       - name: Test packaged local web server
@@ -78,6 +86,7 @@ jobs:
         run: |
           $data = Join-Path $env:RUNNER_TEMP 'att-studio-smoke'
           $env:ATT_STUDIO_DIR = $data
+          $env:ATT_STUDIO_LOG = Join-Path $env:RUNNER_TEMP 'att-studio-server.log'
           $process = Start-Process -FilePath dist/ATT-DOS-GAMES-Studio/ATT-DOS-GAMES-Studio.exe -ArgumentList '--no-browser','--port','18765' -PassThru
           try {
             $ready = $false
@@ -93,6 +102,7 @@ jobs:
             if (-not $ready) { throw 'Packaged server did not become ready' }
           } finally {
             Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
+            if (Test-Path $env:ATT_STUDIO_LOG) { Get-Content $env:ATT_STUDIO_LOG }
           }
 
       - name: Build per-user installer
