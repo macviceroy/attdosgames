@@ -116,5 +116,13 @@ class Analyze(Model):
 class Transcribe(Model):
     asset: ID
 
+class LinkImport(Model):
+    url: str = Field(min_length=12, max_length=2000)
+    rights: str = Field(min_length=5, max_length=500)
+
+class ScriptAssist(Model):
+    title: str = Field(default='Meu novo Short', min_length=1, max_length=100)
+    transcript: str = Field(min_length=1, max_length=20000)
+
 class Command(Model):
     text: str = Field(min_length=1, max_length=200)

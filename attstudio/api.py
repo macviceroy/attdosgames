@@ -12,7 +12,7 @@ from starlette.concurrency import run_in_threadpool
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from filelock import FileLock
 from pydantic import ValidationError
-from .models import Project, Save, Analyze, Transcribe, Command
+from .models import Project, Save, Analyze, Transcribe, Command, LinkImport, ScriptAssist
 from .store import Store, uid
 from .media import inspect_upload, ff, input_args, digest, validate_project, amf_available
 from .jobs import Queue
@@ -61,9 +61,10 @@ def create_app(root=None):
     @app.get('/api/capabilities')
     def capabilities():
         from .fonts import available
+        from .transcription import configured_model
         return {'fonts':available(),'voice':{'name':'ATT DOS GAMES - Brasileiro Alex','connected':False,'input':'WAV/MP3 importado'},
-                'transcription_configured':bool(os.environ.get('ATT_WHISPER_MODEL')),
-                'publication':False,'analysis':'cenas, atividade visual e áudio; sem semântica','encoder_default':'cpu'}
+                'transcription_configured':bool(configured_model()),
+                'link_import':True,'publication':False,'analysis':'cenas, atividade visual e áudio; sem semântica','encoder_default':'cpu'}
     @app.post('/api/check-amd')
     def check_amd():return {'available':amf_available()}
     @app.post('/api/music/{style}')
@@ -148,10 +149,20 @@ def create_app(root=None):
     def analyze(body:Analyze):
         if db.asset(body.asset)['kind']!='video':raise ValueError('Selecione um vídeo')
         return queue.submit('analyze',body.model_dump())
+    @app.post('/api/import-link')
+    def import_link(body:LinkImport):
+        from .importers import validate_url
+        validate_url(body.url)
+        return queue.submit('import_url',body.model_dump())
+    @app.post('/api/assist/script')
+    def assist_script(body:ScriptAssist):
+        from .automation import script_from_transcript
+        return script_from_transcript(body.title,body.transcript)
     @app.post('/api/transcribe')
     def transcribe(body:Transcribe):
         db.asset(body.asset)
-        if not os.environ.get('ATT_WHISPER_MODEL'):raise ValueError('Modelo local não configurado; importe SRT ou configure ATT_WHISPER_MODEL')
+        from .transcription import configured_model
+        if not configured_model():raise ValueError('Modelo local não configurado; execute instalar-ia-local.cmd ou importe SRT')
         return queue.submit('transcribe',body.model_dump())
     @app.get('/api/jobs')
     def jobs():return db.jobs()

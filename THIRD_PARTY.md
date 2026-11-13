@@ -15,6 +15,13 @@
 - FastAPI, Uvicorn, Pillow e dependências transitivas mantêm licenças próprias
   disponíveis nos pacotes fixados pelo lock. Não substituir licenças de terceiros
   por CC0 da arte gerada.
+- yt-dlp é distribuído sob Unlicense. É usado somente para ingestão declarada
+  como autorizada, sem cookies, playlists ou bypass de DRM. A licença do programa
+  não concede direitos sobre o vídeo nem substitui os termos das plataformas.
+- faster-whisper é opcional e MIT; o modelo Systran/faster-whisper-small é
+  baixado somente pelo comando explícito `instalar-ia-local.cmd`. Confira o
+  cartão/licença da versão do modelo antes de redistribuí-lo; modelos não entram
+  no Git.
 
 A biblioteca de demonstração é somente o conjunto procedural descrito no relatório.
 Qualquer mídia adicionada depois exige verificação documental separada.

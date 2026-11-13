@@ -4,10 +4,17 @@ Evolução na branch `feat/studio-local-editor`: importação real, editor web,
 Neon/Arcade/Cinema, cortes e reenquadramento, mixagem, SRT/ASS, capas, análise
 local de cenas e exportação1080×1920. Publicação continua bloqueada.
 
+No Windows, dê duplo clique em `iniciar-studio.cmd`. Ele preserva o modelo que
+abre o Studio por CMD no navegador e instala somente dependências reproduzíveis.
+
 ```powershell
-uv sync --locked
-uv run --locked attstudio
+.\iniciar-studio.cmd
+# uma vez, para roteiro/legendas automáticas locais:
+.\instalar-ia-local.cmd
 ```
+
+Também é possível iniciar manualmente com `uv sync --locked` e
+`uv run --locked attstudio`.
 
 Abra http://127.0.0.1:8765. [Windows e uso](docs/STUDIO_WINDOWS.md) ·
 [Executável e instalador Windows](docs/STUDIO_EXECUTAVEL_WINDOWS.md) ·
@@ -15,8 +22,16 @@ Abra http://127.0.0.1:8765. [Windows e uso](docs/STUDIO_WINDOWS.md) ·
 [Arquitetura e pendências](docs/STUDIO_ARQUITETURA.md) ·
 [Testes reais](docs/STUDIO_TESTES.md) · [Vídeos e capturas](examples/studio/) · [VoiceLabs e Work](docs/STUDIO_VOICELABS_WORK.md).
 
-**Limites:** Windows/AMD precisam de teste na máquina final; VoiceLabs foi testado pelo
-conector oficial, mas o Python local não herda credenciais; ASR exige revisão; não há análise semântica nem publicação automática.
+O Studio aceita arquivo local ou URL HTTPS autorizada de YouTube, Instagram e
+TikTok. A importação usa yt-dlp sem cookies, playlist ou contorno de DRM; o
+usuário precisa declarar os direitos e respeitar os termos da plataforma.
+“Automatizar este Short” executa análise, trilha procedural, transcrição,
+roteiro baseado na fala, legendas, capa e render. Sem o modelo local, a tela
+indica exatamente quais etapas ficaram bloqueadas.
+
+**Limites:** VoiceLabs foi testado pelo conector oficial, mas o Python local não
+herda credenciais; portanto a voz Alex ainda exige o fluxo autorizado do Work ou
+importação do áudio. ASR e roteiro exigem revisão humana; não há publicação automática.
 O frontend da imagem original não estava no repositório. A nova interface foi
 acrescentada preservando os módulos anteriores documentados abaixo.
 

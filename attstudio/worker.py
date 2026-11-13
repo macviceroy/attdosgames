@@ -29,6 +29,9 @@ def _execute(root,id):
         elif job['kind']=='transcribe':
             from .transcription import transcribe
             result=transcribe(db,job['payload'],folder,cancel)
+        elif job['kind']=='import_url':
+            from .importers import download
+            result=download(db,job['payload'],folder,cancel)
         else:raise ValueError('Tipo de trabalho inválido')
         if cancel.exists():raise Cancelled('Cancelado')
         state='completed' if job['kind']!='render' or result['quality']['technical_pass'] else 'qc_failed'
