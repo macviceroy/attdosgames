@@ -1,0 +1,1 @@
+{"name":"att-studio-motion-optional","private":true,"version":"1.0.0","description":"Optional local HTML motion templates; never required by the Python editor","dependencies":{"hyperframes":"0.9.41"}}

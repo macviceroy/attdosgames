@@ -1,0 +1,11 @@
+{
+  "upload": true,
+  "project_save": true,
+  "undo": true,
+  "render": true,
+  "playback": true,
+  "variations": true,
+  "adjust_start": true,
+  "mobile_no_horizontal_overflow": true,
+  "console_errors": []
+}

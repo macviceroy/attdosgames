@@ -12,3 +12,10 @@ data/
 # Separate dry-run storage; never commit operational state
 publication-data/
 handoff-data/
+
+studio-data/
+.playwright/
+
+node_modules/
+
+models/

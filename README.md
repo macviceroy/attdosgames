@@ -1,3 +1,26 @@
+# ATT DOS GAMES Studio — editor local
+
+Evolução na branch `feat/studio-local-editor`: importação real, editor web,
+Neon/Arcade/Cinema, cortes e reenquadramento, mixagem, SRT/ASS, capas, análise
+local de cenas e exportação1080×1920. Publicação continua bloqueada.
+
+```powershell
+uv sync --locked
+uv run --locked attstudio
+```
+
+Abra http://127.0.0.1:8765. [Windows e uso](docs/STUDIO_WINDOWS.md) ·
+[Auditoria](docs/STUDIO_AUDITORIA.md) · [22 repositórios avaliados](docs/STUDIO_REPOSITORIOS.md) ·
+[Arquitetura e pendências](docs/STUDIO_ARQUITETURA.md) ·
+[Testes reais](docs/STUDIO_TESTES.md) · [Vídeos e capturas](examples/studio/).
+
+**Limites:** Windows/AMD precisam de teste na máquina final; VoiceLabs não está
+conectado; ASR exige revisão; não há análise semântica nem publicação automática.
+O frontend da imagem original não estava no repositório. A nova interface foi
+acrescentada preservando os módulos anteriores documentados abaixo.
+
+---
+
 # ATT DOS GAMES — Fase 1 executável
 
 Pipeline local de demonstração: **gera de verdade** MP4 H.264/AAC 1080×1920,

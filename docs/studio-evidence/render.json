@@ -1,0 +1,258 @@
+{
+  "fixture_license": "CC0 original generated test patterns and tones",
+  "speech_tested": false,
+  "exports": [
+    {
+      "template": "neon",
+      "job": "16fd4d7fed5d4ee3bd1717d4421571df",
+      "qc": {
+        "black_intervals": [],
+        "checks": {
+          "audible_audio": true,
+          "audio_timeline": true,
+          "codecs": true,
+          "decode": true,
+          "duration": true,
+          "no_peak_clipping": true,
+          "no_unexpected_black": true,
+          "resolution": true,
+          "srt_matches_project": true
+        },
+        "human_review": [
+          "Sotaque pt-BR e pronúncia",
+          "Correspondência de cada palavra ao áudio",
+          "Legibilidade no telefone",
+          "Conteúdo e direitos"
+        ],
+        "peak_db": -18.8,
+        "publication_allowed": false,
+        "technical_pass": true
+      },
+      "hashes": {
+        "video.mp4": "678f201a3c0f740712a10ca27d1bc6e702f4ceaf20d3ab99df90ce3c71197890",
+        "cover.png": "238b8a568f7c002319edcfbca356ef784b3f5fc4b30fa38d2be87a4ab38edd1a",
+        "cover.jpg": "fcb6f5359db7de1aab2aa9c0991da6de2e48a19769c08a47d77a1788b022759a",
+        "captions.srt": "6609f20ae77072094fe03aaa81ad33645bfa7a7fa0da0cb6628001c827a29df4",
+        "script.txt": "49462d87e0546f2c833ee2ac55d927e3e884c944d00047072289aedcfca864b1",
+        "metadata.json": "295c9064cf6807f13262b2aa7ed3095e225f0ac8e095b1385d28498b9e613fd0",
+        "report.json": "c21c0cd15cae2e32c9fd0cc21fa7999beddaa7c379af6f61ffd70ce73cdfde80",
+        "project.json": "73d9bb1d4b240563db4fd216500b10b2abf101967337ecd73b5f82db44808026"
+      },
+      "idempotency": true
+    },
+    {
+      "template": "arcade",
+      "job": "52614a2562f840d98e9723832f590522",
+      "qc": {
+        "black_intervals": [],
+        "checks": {
+          "audible_audio": true,
+          "audio_timeline": true,
+          "codecs": true,
+          "decode": true,
+          "duration": true,
+          "no_peak_clipping": true,
+          "no_unexpected_black": true,
+          "resolution": true,
+          "srt_matches_project": true
+        },
+        "human_review": [
+          "Sotaque pt-BR e pronúncia",
+          "Correspondência de cada palavra ao áudio",
+          "Legibilidade no telefone",
+          "Conteúdo e direitos"
+        ],
+        "peak_db": -18.8,
+        "publication_allowed": false,
+        "technical_pass": true
+      },
+      "hashes": {
+        "video.mp4": "18592240e8b5a09d5d0dceedf9e28300ac34b98b12ba7997f98f2938e4ea2af2",
+        "cover.png": "4bd0683b66f213697dd1e5d752c9626c822bf291dde5a5ab7411a085991d96c7",
+        "cover.jpg": "901161ca62b75d0e8d9075060f48715194c8ef9efc38aa61878d39160851606f",
+        "captions.srt": "6609f20ae77072094fe03aaa81ad33645bfa7a7fa0da0cb6628001c827a29df4",
+        "script.txt": "49462d87e0546f2c833ee2ac55d927e3e884c944d00047072289aedcfca864b1",
+        "metadata.json": "295c9064cf6807f13262b2aa7ed3095e225f0ac8e095b1385d28498b9e613fd0",
+        "report.json": "ad1e0dbc5f3937de6b50bd575cb8ed8072168d74d5c3181cb43a985ba6a16ee7",
+        "project.json": "2460b853a00851b2792776c15c52743231ec0f0849656bf76b54f283ac21eafb"
+      },
+      "idempotency": true
+    },
+    {
+      "template": "cinema",
+      "job": "f1816c57952d422da1159563ecdfa56d",
+      "qc": {
+        "black_intervals": [],
+        "checks": {
+          "audible_audio": true,
+          "audio_timeline": true,
+          "codecs": true,
+          "decode": true,
+          "duration": true,
+          "no_peak_clipping": true,
+          "no_unexpected_black": true,
+          "resolution": true,
+          "srt_matches_project": true
+        },
+        "human_review": [
+          "Sotaque pt-BR e pronúncia",
+          "Correspondência de cada palavra ao áudio",
+          "Legibilidade no telefone",
+          "Conteúdo e direitos"
+        ],
+        "peak_db": -18.8,
+        "publication_allowed": false,
+        "technical_pass": true
+      },
+      "hashes": {
+        "video.mp4": "f153b1204697e83c9b195068c94c72452e110398cef0a661b29fa5498b83e87a",
+        "cover.png": "aae950e3a5ccea125ee46ec861b4e846e62fb83e51fb9b0441c2d7276cbeab1c",
+        "cover.jpg": "6c3c9b4099752eca32940d062cf561ae8fb9e44a977e30d9ff0438d1e5702df7",
+        "captions.srt": "6609f20ae77072094fe03aaa81ad33645bfa7a7fa0da0cb6628001c827a29df4",
+        "script.txt": "49462d87e0546f2c833ee2ac55d927e3e884c944d00047072289aedcfca864b1",
+        "metadata.json": "295c9064cf6807f13262b2aa7ed3095e225f0ac8e095b1385d28498b9e613fd0",
+        "report.json": "03e390c4406a753fe5977017b081886f19560d49f73772dfde59deb8aff05c75",
+        "project.json": "6a505ad07a4522a5bd912316eb9e7ef61d37adf9109e518d60bfd2efa8149e5e"
+      },
+      "idempotency": true
+    }
+  ],
+  "import": {
+    "duration": 36.02322,
+    "width": 640,
+    "height": 360,
+    "thumbnail_status": 200,
+    "range_status": 206
+  },
+  "analysis": {
+    "asset": "6252dbbc201a4c1e8a53b0d6f404a718",
+    "candidates": [
+      {
+        "audio_rms": 0.0884,
+        "cuts": 0,
+        "duration": 10.0,
+        "end": 30.0,
+        "motion": 0.0293,
+        "score": 0.1237,
+        "start": 20.0,
+        "thumbnail": "moment-0.jpg"
+      },
+      {
+        "audio_rms": 0.0882,
+        "cuts": 0,
+        "duration": 10.0,
+        "end": 20.0,
+        "motion": 0.023,
+        "score": 0.1196,
+        "start": 10.0,
+        "thumbnail": "moment-1.jpg"
+      },
+      {
+        "audio_rms": 0.0883,
+        "cuts": 0,
+        "duration": 10.0,
+        "end": 10.0,
+        "motion": 0.0173,
+        "score": 0.1163,
+        "start": 0.0,
+        "thumbnail": "moment-2.jpg"
+      }
+    ],
+    "method": "PySceneDetect ContentDetector + sampled visual change + RMS",
+    "scenes": [
+      {
+        "end": 36.0,
+        "start": 0.0
+      }
+    ],
+    "semantic_analysis": false,
+    "warning": "Sugestões técnicas, sem previsão de viralização. Silêncio não é removido. Revise o contexto."
+  },
+  "variations": [
+    {
+      "start": 20.0,
+      "end": 30.0,
+      "job": "e21208a9f73d4451b47b6d8ebb2ceb95",
+      "quality": {
+        "black_intervals": [],
+        "checks": {
+          "audible_audio": true,
+          "audio_timeline": true,
+          "codecs": true,
+          "decode": true,
+          "duration": true,
+          "no_peak_clipping": true,
+          "no_unexpected_black": true,
+          "resolution": true,
+          "srt_matches_project": true
+        },
+        "human_review": [
+          "Sotaque pt-BR e pronúncia",
+          "Correspondência de cada palavra ao áudio",
+          "Legibilidade no telefone",
+          "Conteúdo e direitos"
+        ],
+        "peak_db": -15.7,
+        "publication_allowed": false,
+        "technical_pass": true
+      }
+    },
+    {
+      "start": 10.0,
+      "end": 20.0,
+      "job": "b2f0058ba1294e52b9affd098102a4fc",
+      "quality": {
+        "black_intervals": [],
+        "checks": {
+          "audible_audio": true,
+          "audio_timeline": true,
+          "codecs": true,
+          "decode": true,
+          "duration": true,
+          "no_peak_clipping": true,
+          "no_unexpected_black": true,
+          "resolution": true,
+          "srt_matches_project": true
+        },
+        "human_review": [
+          "Sotaque pt-BR e pronúncia",
+          "Correspondência de cada palavra ao áudio",
+          "Legibilidade no telefone",
+          "Conteúdo e direitos"
+        ],
+        "peak_db": -16.5,
+        "publication_allowed": false,
+        "technical_pass": true
+      }
+    },
+    {
+      "start": 0.0,
+      "end": 10.0,
+      "job": "d154dc91f43f4602909d851f99bd6e2f",
+      "quality": {
+        "black_intervals": [],
+        "checks": {
+          "audible_audio": true,
+          "audio_timeline": true,
+          "codecs": true,
+          "decode": true,
+          "duration": true,
+          "no_peak_clipping": true,
+          "no_unexpected_black": true,
+          "resolution": true,
+          "srt_matches_project": true
+        },
+        "human_review": [
+          "Sotaque pt-BR e pronúncia",
+          "Correspondência de cada palavra ao áudio",
+          "Legibilidade no telefone",
+          "Conteúdo e direitos"
+        ],
+        "peak_db": -16.0,
+        "publication_allowed": false,
+        "technical_pass": true
+      }
+    }
+  ],
+  "publication_blocked": true
+}

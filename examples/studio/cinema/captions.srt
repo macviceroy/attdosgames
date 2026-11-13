@@ -1,0 +1,11 @@
+1
+00:00:00,000 --> 00:00:02,000
+Teste visual ATT DOS GAMES
+
+2
+00:00:02,000 --> 00:00:04,000
+Sinais de áudio, sem voz humana
+
+3
+00:00:04,000 --> 00:00:06,000
+Exportação local em MP4

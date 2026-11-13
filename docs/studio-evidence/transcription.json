@@ -1,0 +1,61 @@
+{
+  "language": "pt",
+  "locale_requested": "pt-BR",
+  "locale_verified": false,
+  "cues": [
+    {
+      "start": 0.0,
+      "end": 0.24,
+      "text": "E"
+    },
+    {
+      "start": 0.24,
+      "end": 0.36,
+      "text": "até"
+    },
+    {
+      "start": 0.36,
+      "end": 0.54,
+      "text": "a"
+    },
+    {
+      "start": 0.54,
+      "end": 0.9,
+      "text": "vez"
+    },
+    {
+      "start": 0.9,
+      "end": 1.32,
+      "text": "que"
+    },
+    {
+      "start": 1.32,
+      "end": 1.38,
+      "text": "o"
+    },
+    {
+      "start": 1.38,
+      "end": 1.64,
+      "text": "inato"
+    },
+    {
+      "start": 1.64,
+      "end": 1.9,
+      "text": "com"
+    },
+    {
+      "start": 1.9,
+      "end": 2.04,
+      "text": "um"
+    },
+    {
+      "start": 2.04,
+      "end": 2.4,
+      "text": "pulmóvis."
+    }
+  ],
+  "script": "E até a vez que o inato com um pulmóvis.",
+  "model": "whisper-tiny",
+  "review_required": true,
+  "note": "Whisper distingue português, não comprova variante brasileira. Revise palavras e tempos."
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "name": "Teste cinema",
+  "title": "Seu vídeo. Sua identidade.",
+  "description": "Demonstração técnica com mídia original; não é gameplay.",
+  "hashtags": [
+    "#ATTDOSGAMES"
+  ],
+  "script": "Teste visual ATT DOS GAMES. Sinais de áudio, sem voz humana. Exportação local em MP4.",
+  "template": "cinema",
+  "clips": [
+    {
+      "asset": "6252dbbc201a4c1e8a53b0d6f404a718",
+      "start": 1.0,
+      "end": 4.0,
+      "focus_x": 0.5,
+      "zoom": true
+    },
+    {
+      "asset": "6252dbbc201a4c1e8a53b0d6f404a718",
+      "start": 13.0,
+      "end": 16.0,
+      "focus_x": 0.5,
+      "zoom": false
+    }
+  ],
+  "narration": {
+    "asset": "8c317c01aecd4cc9a1890492b8bb8f76",
+    "volume": 0.8,
+    "offset": 0.0
+  },
+  "music": {
+    "asset": "66e07d6aed6a4662b1a901457a14b3f2",
+    "volume": 0.2,
+    "offset": 0.0
+  },
+  "original_volume": 0.4,
+  "ducking": true,
+  "transition": "fade",
+  "captions": {
+    "style": "minimal",
+    "size": 56,
+    "color": "#FFFFFF",
+    "y": 1460,
+    "cues": [
+      {
+        "start": 0.0,
+        "end": 2.0,
+        "text": "Teste visual ATT DOS GAMES"
+      },
+      {
+        "start": 2.0,
+        "end": 4.0,
+        "text": "Sinais de áudio, sem voz humana"
+      },
+      {
+        "start": 4.0,
+        "end": 6.0,
+        "text": "Exportação local em MP4"
+      }
+    ]
+  },
+  "cover": {
+    "time": 0.0,
+    "image": null,
+    "title": "Teste CINEMA",
+    "color": "#D6C5AB",
+    "y": 1050,
+    "size": 80
+  },
+  "encoder": "cpu"
+}

@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "quality": {
+    "technical_pass": true,
+    "checks": {
+      "decode": true,
+      "resolution": true,
+      "codecs": true,
+      "duration": true,
+      "audio_timeline": true,
+      "srt_matches_project": true,
+      "no_unexpected_black": true,
+      "audible_audio": true,
+      "no_peak_clipping": true
+    },
+    "peak_db": -15.0,
+    "black_intervals": [],
+    "human_review": [
+      "Sotaque pt-BR e pronúncia",
+      "Correspondência de cada palavra ao áudio",
+      "Legibilidade no telefone",
+      "Conteúdo e direitos"
+    ],
+    "publication_allowed": false
+  },
+  "assets": [
+    {
+      "audio": false,
+      "bytes": 165982,
+      "duration": 3.0,
+      "extension": ".mp4",
+      "format": "mov,mp4,m4a,3gp,3g2,mj2",
+      "height": 1920,
+      "id": "54afa7a0e520403ab4224d0a19c43461",
+      "kind": "video",
+      "name": "motion-adapter.mp4",
+      "rights": "CC0 — original ATT Studio procedural composition",
+      "sha256": "e7265c5a8b795dc96f4a4cb9375d258163ca142df900a9097f514b5a2317da50",
+      "width": 1080
+    },
+    {
+      "audio": true,
+      "bytes": 8257398,
+      "duration": 36.02322,
+      "extension": ".mp4",
+      "format": "mov,mp4,m4a,3gp,3g2,mj2",
+      "height": 360,
+      "id": "f2b2b716d94947c8b85bcb4b1cbac0a0",
+      "kind": "video",
+      "name": "source.mp4",
+      "rights": "CC0 — original ATT Studio procedural composition",
+      "sha256": "863dd48593ff3340a4e0b32585835b75afb8292727cc6ca0bff2100c30dd29a8",
+      "width": 640
+    },
+    {
+      "audio": true,
+      "beats": [
+        0.0,
+        0.6,
+        1.2,
+        1.8,
+        2.4,
+        3.0,
+        3.6,
+        4.2,
+        4.8,
+        5.4,
+        6.0,
+        6.6,
+        7.2,
+        7.8,
+        8.4,
+        9.0
+      ],
+      "bpm": 100,
+      "bytes": 460844,
+      "duration": 9.6,
+      "extension": ".wav",
+      "height": 0,
+      "id": "f3951135fee5405eb4952da4977c8741",
+      "kind": "audio",
+      "name": "ATT original — synthwave.wav",
+      "rights": "CC0-1.0 — composição procedural original ATT Studio; sem gravações comerciais",
+      "sha256": "addc2ede25962929a6eba0418da80cdc6afb368e5e305a6b2c7ef5c45f1c2a73",
+      "width": 0
+    }
+  ],
+  "template": "neon",
+  "encoder": "libx264",
+  "voice": {
+    "provider": null,
+    "preferred": "ATT DOS GAMES - Brasileiro Alex",
+    "pt_BR_accent": "human_review_required"
+  },
+  "rights": "User declarations, not independently verified licenses",
+  "publication_allowed": false,
+  "hashes": {
+    "cover.png": "ae54680829d350877659b1c365f92a46ff6dc087960c84e1fdc406ba8b6c6829",
+    "video.mp4": "b24d13d55692cdc18380e2e88dd438e33fed3eed0e79aba439a0f6fc33365df8",
+    "script.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "metadata.json": "d4d64429d313b99d36257b48952d285054e2b803014f41f65ec1fc9bb7ab4187",
+    "project.json": "0e8abc3de1b6cbc060f20744b312e9e20151457c0bb1de9f2f08c8b11fe18faa",
+    "cover.jpg": "0eb8665119e95970f4b5178f230018abf4ee97a9c701823f89040f553c69e67a",
+    "captions.srt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

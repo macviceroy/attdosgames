@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "quality": {
+    "technical_pass": true,
+    "checks": {
+      "decode": true,
+      "resolution": true,
+      "codecs": true,
+      "duration": true,
+      "audio_timeline": true,
+      "srt_matches_project": true,
+      "no_unexpected_black": true,
+      "audible_audio": true,
+      "no_peak_clipping": true
+    },
+    "peak_db": -18.8,
+    "black_intervals": [],
+    "human_review": [
+      "Sotaque pt-BR e pronúncia",
+      "Correspondência de cada palavra ao áudio",
+      "Legibilidade no telefone",
+      "Conteúdo e direitos"
+    ],
+    "publication_allowed": false
+  },
+  "assets": [
+    {
+      "audio": true,
+      "bytes": 8257398,
+      "duration": 36.02322,
+      "extension": ".mp4",
+      "format": "mov,mp4,m4a,3gp,3g2,mj2",
+      "height": 360,
+      "id": "6252dbbc201a4c1e8a53b0d6f404a718",
+      "kind": "video",
+      "name": "source.mp4",
+      "rights": "CC0 — original procedural test fixture",
+      "sha256": "863dd48593ff3340a4e0b32585835b75afb8292727cc6ca0bff2100c30dd29a8",
+      "width": 640
+    },
+    {
+      "audio": true,
+      "bytes": 705678,
+      "duration": 8.0,
+      "extension": ".wav",
+      "format": "wav",
+      "height": 0,
+      "id": "66e07d6aed6a4662b1a901457a14b3f2",
+      "kind": "audio",
+      "name": "music.wav",
+      "rights": "CC0 — original procedural test fixture",
+      "sha256": "e904f5646ff97d144d97d76ad294a94f612690ce5e7877c30a3f04d8e8074edd",
+      "width": 0
+    },
+    {
+      "audio": true,
+      "bytes": 352878,
+      "duration": 4.0,
+      "extension": ".wav",
+      "format": "wav",
+      "height": 0,
+      "id": "8c317c01aecd4cc9a1890492b8bb8f76",
+      "kind": "audio",
+      "name": "audio-track-test.wav",
+      "rights": "CC0 — original procedural test fixture",
+      "sha256": "1b7f374a32548fee68347a3f59dffe9ce613a607e60f2e3e2231dab11e009e8e",
+      "width": 0
+    }
+  ],
+  "template": "neon",
+  "encoder": "libx264",
+  "voice": {
+    "provider": "imported",
+    "preferred": "ATT DOS GAMES - Brasileiro Alex",
+    "pt_BR_accent": "human_review_required"
+  },
+  "rights": "User declarations, not independently verified licenses",
+  "publication_allowed": false,
+  "hashes": {
+    "cover.png": "238b8a568f7c002319edcfbca356ef784b3f5fc4b30fa38d2be87a4ab38edd1a",
+    "video.mp4": "678f201a3c0f740712a10ca27d1bc6e702f4ceaf20d3ab99df90ce3c71197890",
+    "script.txt": "49462d87e0546f2c833ee2ac55d927e3e884c944d00047072289aedcfca864b1",
+    "metadata.json": "295c9064cf6807f13262b2aa7ed3095e225f0ac8e095b1385d28498b9e613fd0",
+    "project.json": "73d9bb1d4b240563db4fd216500b10b2abf101967337ecd73b5f82db44808026",
+    "cover.jpg": "fcb6f5359db7de1aab2aa9c0991da6de2e48a19769c08a47d77a1788b022759a",
+    "captions.srt": "6609f20ae77072094fe03aaa81ad33645bfa7a7fa0da0cb6628001c827a29df4"
+  }
+}

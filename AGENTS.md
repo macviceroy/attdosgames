@@ -15,3 +15,12 @@ Use `uv run attpublish dry-run --manifest examples/publication-dry-run.json`.
 Nunca substituir identidades sim_* por tokens, nem tratar simulated_confirmed
 como publicação. O CLI/API antigo de produção continua bloqueado.
 A API REST nova não é um endpoint MCP; docs/CHATGPT_WORK.md explica a ponte pendente.
+
+# Studio local
+`attstudio/` e `scripts/studio_e2e.py` são a evolução do editor. Leia
+`docs/STUDIO_ARQUITETURA.md`, `docs/STUDIO_TESTES.md` e
+`docs/STUDIO_CONTINUAR.md` antes de retomar. Não substituir a voz aprovada por
+eSpeak: Studio só importa áudio; transcrição não comprova sotaque nem exatidão.
+`uv sync --locked` instala o editor; transcrição é extra opcional. Manter
+`attgames/`, `attpublish/` e seus testes intactos. Nunca versionar studio-data,
+modelos, tokens, node_modules ou bancos novos.
