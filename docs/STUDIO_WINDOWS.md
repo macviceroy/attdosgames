@@ -1,5 +1,9 @@
 # Instalar e abrir no Windows 10/11 x64
 
+Para usar sem instalar Python ou FFmpeg, baixe o instalador ou pacote portátil
+produzido pelo GitHub Actions. Veja [STUDIO_EXECUTAVEL_WINDOWS.md](STUDIO_EXECUTAVEL_WINDOWS.md).
+As instruções abaixo são para desenvolvimento a partir do código-fonte.
+
 Use a branch `feat/studio-local-editor`. O Studio é novo, mas `attgames` e
 `attpublish` continuam disponíveis. Não há publicação no Studio.
 

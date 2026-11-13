@@ -6,6 +6,7 @@ import tempfile
 import time
 from pathlib import Path
 from PIL import Image
+from .runtime import executable
 
 class Cancelled(RuntimeError):pass
 
@@ -32,13 +33,13 @@ def run(args, cwd=None, cancel=None, timeout=1800):
         out.seek(0);return out.read().decode('utf-8',errors='replace')
 
 def ff(args,**kwargs):
-    return run(['ffmpeg','-nostdin','-hide_banner','-loglevel','error','-y','-filter_complex_threads','1',*args],**kwargs)
+    return run([executable('ffmpeg'),'-nostdin','-hide_banner','-loglevel','error','-y','-filter_complex_threads','1',*args],**kwargs)
 
 def input_args(path):
     return ['-protocol_whitelist','file,pipe','-i',str(path)]
 
 def probe(path):
-    return json.loads(run(['ffprobe','-v','error','-protocol_whitelist','file,pipe','-show_format','-show_streams','-of','json',path],timeout=30))
+    return json.loads(run([executable('ffprobe'),'-v','error','-protocol_whitelist','file,pipe','-show_format','-show_streams','-of','json',path],timeout=30))
 
 def inspect_upload(path,kind):
     if kind=='image':

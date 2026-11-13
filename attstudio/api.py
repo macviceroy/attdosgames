@@ -16,12 +16,13 @@ from .models import Project, Save, Analyze, Transcribe, Command
 from .store import Store, uid
 from .media import inspect_upload, ff, input_args, digest, validate_project, amf_available
 from .jobs import Queue
+from .runtime import resource, default_data_dir
 
-STATIC=Path(__file__).parent/'static'
+STATIC=resource('attstudio','static')
 EXPORTS={'video.mp4','cover.png','cover.jpg','captions.srt','script.txt','metadata.json','report.json','project.json'}
 
 def create_app(root=None):
-    db=Store(root or os.environ.get('ATT_STUDIO_DIR','studio-data'))
+    db=Store(root or default_data_dir())
     queue=Queue(db)
     @asynccontextmanager
     async def lifespan(app):

@@ -70,6 +70,15 @@ uv run --with playwright==1.56.0 python scripts/studio_browser_e2e.py --fixtures
 O Chromium de teste precisa suportar H.264/AAC. Esse script é executado
 explicitamente, separado da suíte pytest, e não instala navegador silenciosamente.
 
+## Empacotamento Windows
+
+A suíte após a adaptação para executável passou com **82 testes**. O novo
+`python -m attstudio --self-test` também passou no ambiente de desenvolvimento:
+localizou recursos/FFmpeg, iniciou um worker subprocesso e produziu H.264/AAC
+1080×1920. O workflow Windows repete esse teste usando o próprio `.exe` congelado,
+além de iniciar a API empacotada. O resultado do runner deve ser consultado antes
+de declarar o instalador aprovado em Windows.
+
 A integração real VoiceLabs produziu quatro falas baixadas e um MP4 local20s
 com música, quatro cortes, camadas e SRT por frase. QC técnico aprovado; sotaque
 e termos comerciais ainda não aprovados. Áudio não enviado ao GitHub.

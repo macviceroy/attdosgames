@@ -1,0 +1,15 @@
+ATT DOS GAMES Studio - Windows package notices
+
+This package contains FFmpeg 9.0.2 essentials build from gyan.dev.
+FFmpeg source: https://github.com/FFmpeg/FFmpeg/tree/n9.0.2
+FFmpeg licensing depends on build configuration. The bundled executable reports
+its configuration with: ffmpeg.exe -version. See the included FFmpeg LICENSE file
+and https://ffmpeg.org/legal.html. FFmpeg and its libraries are not owned by ATT
+DOS GAMES. No warranty is provided by their respective authors.
+
+Python dependency license copies and the DejaVu font license are distributed in
+the application folder. See THIRD_PARTY.md and docs/licenses in the source repo:
+https://github.com/macviceroy/attdosgames/tree/feat/studio-local-editor
+
+The installer does not include VoiceLabs credentials, model weights, user media,
+tokens, databases, social network publishing or commercial game footage.

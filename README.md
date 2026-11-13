@@ -10,6 +10,7 @@ uv run --locked attstudio
 ```
 
 Abra http://127.0.0.1:8765. [Windows e uso](docs/STUDIO_WINDOWS.md) ·
+[Executável e instalador Windows](docs/STUDIO_EXECUTAVEL_WINDOWS.md) ·
 [Auditoria](docs/STUDIO_AUDITORIA.md) · [22 repositórios avaliados](docs/STUDIO_REPOSITORIOS.md) ·
 [Arquitetura e pendências](docs/STUDIO_ARQUITETURA.md) ·
 [Testes reais](docs/STUDIO_TESTES.md) · [Vídeos e capturas](examples/studio/) · [VoiceLabs e Work](docs/STUDIO_VOICELABS_WORK.md).

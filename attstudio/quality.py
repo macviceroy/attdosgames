@@ -1,14 +1,15 @@
 import re
 from .media import probe, run, input_args
+from .runtime import executable
 from .captions import srt
 
 def inspect(folder,p,cancel=None):
     path=folder/'video.mp4';m=probe(path)
     v=next(s for s in m['streams'] if s['codec_type']=='video');a=next(s for s in m['streams'] if s['codec_type']=='audio')
-    run(['ffmpeg','-v','error','-xerror',*input_args(path),'-f','null','-'],cancel=cancel)
+    run([executable('ffmpeg'),'-v','error','-xerror',*input_args(path),'-f','null','-'],cancel=cancel)
     # Audio/black diagnostics use captured stderr via a local file, no shell.
     import subprocess
-    result=subprocess.run(['ffmpeg','-hide_banner',*input_args(path),'-af','volumedetect','-vf','blackdetect=d=0.5:pix_th=0.08','-f','null','-'],capture_output=True,text=True,timeout=300)
+    result=subprocess.run([executable('ffmpeg'),'-hide_banner',*input_args(path),'-af','volumedetect','-vf','blackdetect=d=0.5:pix_th=0.08','-f','null','-'],capture_output=True,text=True,timeout=300)
     log=result.stderr
     peak=re.search(r'max_volume: ([-\w.]+) dB',log)
     peak_db=float(peak[1]) if peak else float('-inf')

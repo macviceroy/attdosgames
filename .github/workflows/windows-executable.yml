@@ -1,0 +1,114 @@
+name: Windows executable
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [feat/studio-local-editor]
+    paths:
+      - 'attstudio/**'
+      - 'attgames/**'
+      - 'brand/**'
+      - 'packaging/**'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '.github/workflows/windows-executable.yml'
+
+permissions:
+  contents: read
+
+env:
+  FFMPEG_VERSION: '9.0.2'
+  FFMPEG_SHA256: '60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba'
+
+jobs:
+  build:
+    runs-on: windows-2025
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.9.11'
+          enable-cache: true
+
+      - name: Install locked Python dependencies
+        run: uv sync --locked
+
+      - name: Download and verify FFmpeg
+        shell: pwsh
+        run: |
+          $url = "https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-$env:FFMPEG_VERSION-essentials_build.zip"
+          Invoke-WebRequest -Uri $url -OutFile ffmpeg.zip
+          $actual = (Get-FileHash ffmpeg.zip -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($actual -ne $env:FFMPEG_SHA256) { throw "FFmpeg SHA256 mismatch: $actual" }
+          Expand-Archive ffmpeg.zip -DestinationPath packaging/ffmpeg
+          New-Item -ItemType Directory -Force packaging/bin | Out-Null
+          Copy-Item (Get-ChildItem packaging/ffmpeg -Recurse -Filter ffmpeg.exe | Select-Object -First 1).FullName packaging/bin/ffmpeg.exe
+          Copy-Item (Get-ChildItem packaging/ffmpeg -Recurse -Filter ffprobe.exe | Select-Object -First 1).FullName packaging/bin/ffprobe.exe
+          $license = Get-ChildItem packaging/ffmpeg -Recurse -File | Where-Object { $_.Name -match '^LICENSE' } | Select-Object -First 1
+          if ($license) { Copy-Item $license.FullName packaging/FFMPEG-LICENSE.txt }
+
+      - name: Run source tests
+        run: uv run --locked pytest -q
+
+      - name: Build portable executable
+        run: uv run --with pyinstaller==6.16.0 pyinstaller --clean --noconfirm packaging/att-studio.spec
+
+      - name: Add notices to portable folder
+        shell: pwsh
+        run: |
+          Copy-Item packaging/THIRD_PARTY_NOTICES.txt dist/ATT-DOS-GAMES-Studio/
+          if (Test-Path packaging/FFMPEG-LICENSE.txt) { Copy-Item packaging/FFMPEG-LICENSE.txt dist/ATT-DOS-GAMES-Studio/ }
+          Copy-Item THIRD_PARTY.md dist/ATT-DOS-GAMES-Studio/
+          Copy-Item docs/licenses dist/ATT-DOS-GAMES-Studio/licenses -Recurse
+
+      - name: Test packaged worker, FFmpeg and render
+        shell: pwsh
+        run: |
+          $process = Start-Process -FilePath dist/ATT-DOS-GAMES-Studio/ATT-DOS-GAMES-Studio.exe -ArgumentList '--self-test' -Wait -PassThru
+          if ($process.ExitCode -ne 0) { throw "Packaged self-test failed: $($process.ExitCode)" }
+
+      - name: Test packaged local web server
+        shell: pwsh
+        run: |
+          $data = Join-Path $env:RUNNER_TEMP 'att-studio-smoke'
+          $env:ATT_STUDIO_DIR = $data
+          $process = Start-Process -FilePath dist/ATT-DOS-GAMES-Studio/ATT-DOS-GAMES-Studio.exe -ArgumentList '--no-browser','--port','18765' -PassThru
+          try {
+            $ready = $false
+            1..30 | ForEach-Object {
+              if (-not $ready) {
+                Start-Sleep -Seconds 1
+                try {
+                  $response = Invoke-RestMethod -Uri http://127.0.0.1:18765/api/capabilities
+                  if ($response.publication -eq $false) { $ready = $true }
+                } catch {}
+              }
+            }
+            if (-not $ready) { throw 'Packaged server did not become ready' }
+          } finally {
+            Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
+          }
+
+      - name: Build per-user installer
+        shell: pwsh
+        run: |
+          choco install innosetup --version=6.4.3 -y --no-progress
+          & 'C:\Program Files (x86)\Inno Setup 6\ISCC.exe' packaging/installer.iss
+
+      - name: Write checksums
+        shell: pwsh
+        run: |
+          Compress-Archive -Path dist/ATT-DOS-GAMES-Studio -DestinationPath dist-installer/ATT-DOS-GAMES-Studio-Portable-x64.zip
+          Get-ChildItem dist-installer -File | ForEach-Object {
+            $hash=(Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+            "$hash  $($_.Name)" | Add-Content dist-installer/SHA256SUMS.txt
+          }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ATT-DOS-GAMES-Studio-Windows-x64
+          path: dist-installer/*
+          if-no-files-found: error
+          retention-days: 30

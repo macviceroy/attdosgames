@@ -6,9 +6,10 @@ import textwrap
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 from .tts import synthesize
+from attstudio.runtime import bundle_root
 
 COLORS = ['#FF007A', '#A100FF', '#00E5FF', '#FFC400']
-PROJECT = Path(__file__).resolve().parents[1]
+PROJECT = bundle_root()
 
 
 def run(args):

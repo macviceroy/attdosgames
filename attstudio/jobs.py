@@ -7,6 +7,7 @@ import signal
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from .media import run
+from .runtime import worker_command
 from filelock import FileLock, Timeout
 
 class Queue:
@@ -37,7 +38,7 @@ class Queue:
             log=folder/'worker.log'
             with log.open('w',encoding='utf-8') as out:
                 options = {'creationflags': subprocess.CREATE_NEW_PROCESS_GROUP} if os.name=='nt' else {'start_new_session':True}
-                proc=subprocess.Popen([sys.executable,'-m','attstudio.worker',str(self.db.root),id],stdout=out,stderr=out,**options)
+                proc=subprocess.Popen(worker_command(self.db.root,id),stdout=out,stderr=out,**options)
                 deadline=time.monotonic()+3600
                 cancel_since=None
                 while proc.poll() is None:
