@@ -3,13 +3,13 @@ from PyInstaller.utils.hooks import collect_submodules, collect_data_files
 
 hiddenimports=(collect_submodules('attstudio')+collect_submodules('attgames')+
                collect_submodules('uvicorn')+collect_submodules('scenedetect'))
-datas=[('attstudio/static','attstudio/static'),('brand','brand')]
+datas=[('../attstudio/static','attstudio/static'),('../brand','brand')]
 datas+=collect_data_files('espeakng_loader')
 
 a=Analysis(
-    ['packaging/windows_entry.py'],
-    pathex=['.'],
-    binaries=[('packaging/bin/ffmpeg.exe','bin'),('packaging/bin/ffprobe.exe','bin')],
+    ['windows_entry.py'],
+    pathex=['..'],
+    binaries=[('bin/ffmpeg.exe','bin'),('bin/ffprobe.exe','bin')],
     datas=datas,
     hiddenimports=hiddenimports,
     excludes=['attpublish','googleapiclient','google_auth_httplib2','pytest','httpx'],
