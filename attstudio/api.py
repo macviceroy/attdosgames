@@ -19,6 +19,7 @@ from .jobs import Queue
 from .runtime import resource, default_data_dir
 
 STATIC=resource('attstudio','static')
+BUILD='studio-2026.11.13-r2'
 EXPORTS={'video.mp4','cover.png','cover.jpg','captions.srt','script.txt','metadata.json','report.json','project.json'}
 
 def create_app(root=None):
@@ -48,6 +49,9 @@ def create_app(root=None):
         response.headers['X-Content-Type-Options']='nosniff'
         response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; media-src 'self' blob:; img-src 'self' blob: data:; frame-ancestors 'none'; connect-src 'self'"
         response.headers['Referrer-Policy']='no-referrer'
+        # Local development UI must never look stale after replacing the folder.
+        response.headers['Cache-Control']='no-store, max-age=0'
+        response.headers['Pragma']='no-cache'
         return response
     @app.exception_handler(KeyError)
     async def missing(request,e):return JSONResponse({'detail':str(e)},404)
@@ -62,7 +66,7 @@ def create_app(root=None):
     def capabilities():
         from .fonts import available
         from .transcription import configured_model
-        return {'fonts':available(),'voice':{'name':'ATT DOS GAMES - Brasileiro Alex','connected':False,'input':'WAV/MP3 importado'},
+        return {'build':BUILD,'fonts':available(),'voice':{'name':'ATT DOS GAMES - Brasileiro Alex','connected':False,'input':'WAV/MP3 importado'},
                 'transcription_configured':bool(configured_model()),
                 'link_import':True,'publication':False,'analysis':'cenas, atividade visual e áudio; sem semântica','encoder_default':'cpu'}
     @app.post('/api/check-amd')

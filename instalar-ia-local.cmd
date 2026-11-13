@@ -2,6 +2,11 @@
 setlocal
 cd /d "%~dp0"
 set UV_CACHE_DIR=%CD%\.uv-cache
+if exist "studio-data\models\faster-whisper-small\config.json" (
+  echo A IA local ja esta instalada. Nao sera baixada novamente.
+  pause
+  exit /b 0
+)
 call scripts\ensure-uv.cmd
 if errorlevel 1 (pause & exit /b 1)
 echo Instalando transcricao local faster-whisper (CPU, sem API paga)...
