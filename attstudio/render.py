@@ -31,7 +31,7 @@ def text_card(title,style,size=56,color=None,width=920,font_name="DejaVu Sans"):
             lines.append(line);line=word
         else:line=trial
     if line:lines.append(line)
-    if len(lines)>4 or any(d.textlength(x,font=chosen(size))>width-85 for x in lines):
+    if len(lines)>4 or len(lines)*size+max(0,len(lines)-1)*12>220 or any(d.textlength(x,font=chosen(size))>width-85 for x in lines):
         if size>28:return text_card(title,style,size-4,color,width,font_name)
         raise ValueError('Título longo demais para a área segura')
     y=80
@@ -39,17 +39,6 @@ def text_card(title,style,size=56,color=None,width=920,font_name="DejaVu Sans"):
         d.text((40,y),line,font=chosen(size),fill='white',stroke_width=1);y+=size+12
     d.text((40,315),'ATT DOS GAMES  /  @attdosgames',font=font(25),fill=color)
     return im
-
-def make_cover(db,p,video,folder,cancel):
-    if p.cover.image:
-        with Image.open(db.path(p.cover.image)) as original:im=ImageOps.fit(original.convert('RGB'),(1080,1920))
-    else:
-        ff(['-ss',str(p.cover.time),*input_args(video),'-frames:v','1',str(folder/'frame.png')],cancel=cancel)
-        with Image.open(folder/'frame.png') as original:im=original.convert('RGB')
-    im=ImageOps.fit(im,(1080,1920)).convert('RGBA')
-    overlay=text_card(p.cover.title or p.title,p.template,p.cover.size,p.cover.color,font_name=p.cover.font)
-    im.alpha_composite(overlay,(70,p.cover.y));im.convert('RGB').save(folder/'cover.png')
-    im.convert('RGB').save(folder/'cover.jpg',quality=94)
 
 def render(db,payload,folder,cancel):
     p=Project.model_validate(payload['project']);assets=validate_project(db,p)
@@ -62,11 +51,14 @@ def render(db,payload,folder,cancel):
     (work/'fonts').mkdir(exist_ok=True)
     from attgames.editor import PROJECT
     from .fonts import path as font_path
-    for name in {p.captions.font,p.cover.font,'DejaVu Sans'}:
+    for name in {p.captions.font,p.cover.font,'DejaVu Sans'} | {layer.font for layer in p.text_layers}:
         f=font_path(name);shutil.copy2(f,work/'fonts'/f.name)
     try:
+        elapsed=0.0
         for i,c in enumerate(p.clips):
-            seconds=round((c.end-c.start)*30)/30
+            next_elapsed=elapsed+c.end-c.start
+            seconds=(round(next_elapsed*30)-round(elapsed*30))/30
+            elapsed=next_elapsed
             # Crop the chosen horizontal subject position; zoom keeps a stable center.
             vf=f'scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920:(iw-1080)*{c.focus_x}:(ih-1920)/2,setsar=1,fps=30'
             if c.zoom:
@@ -86,8 +78,25 @@ def render(db,payload,folder,cancel):
         (work/'captions.ass').write_text(captions.ass(p),encoding='utf-8')
         text_card(p.title,p.template).save(work/'title.png')
         args=[*input_args('base.mp4'),'-loop','1',*input_args('title.png')]
-        graph=["[0:v][1:v]overlay=x=70:y='180+30*exp(-6*t)':enable='lt(t,3)'[title]",'[title]ass=filename=captions.ass:fontsdir=fonts[v]']
-        audio=['[0:a]'];next_index=2
+        graph=["[0:v][1:v]overlay=x=70:y='180+30*exp(-6*t)':enable='lt(t,3)'[title]"]
+        previous='title'
+        for number,layer in enumerate(p.text_layers):
+            name=f'layer-{number}.png'
+            text_card(layer.text,p.template,layer.size,layer.color,font_name=layer.font).save(work/name)
+            args+=['-loop','1',*input_args(name)]
+            index=number+2
+            current=f'layered{number}'
+            picture=f'{index}:v'
+            y=str(layer.y)
+            if layer.animation=='fade':
+                graph.append(f'[{picture}]format=rgba,fade=t=in:st={layer.start}:d=0.12:alpha=1,fade=t=out:st={layer.end-.12}:d=0.12:alpha=1[fade{number}]')
+                picture=f'fade{number}'
+            elif layer.animation=='slide':
+                y=f'{layer.y}+30*exp(-6*(t-{layer.start}))'
+            graph.append(f"[{previous}][{picture}]overlay=x=70:y='{y}':enable='gte(t,{layer.start})*lt(t,{layer.end})'[{current}]")
+            previous=current
+        graph.append(f'[{previous}]ass=filename=captions.ass:fontsdir=fonts[v]')
+        audio=['[0:a]'];next_index=2+len(p.text_layers)
         narration=None;music=None
         for name,track in [('narr',p.narration),('music',p.music)]:
             if track:
@@ -103,7 +112,8 @@ def render(db,payload,folder,cancel):
         audio += [x for x in [narration,music] if x]
         graph.append(''.join(audio)+f'amix=inputs={len(audio)}:duration=longest:normalize=0,alimiter=limit=0.95:level=false:latency=true,atrim=duration={p.duration}[a]')
         ff([*args,'-filter_complex',';'.join(graph),'-map','[v]','-map','[a]','-t',str(p.duration),*codec,'-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-ar','48000','-threads','2','-movflags','+faststart',str(folder/'video.mp4')],cwd=work,cancel=cancel)
-        make_cover(db,p,folder/'video.mp4',folder,cancel)
+        from .covers import generate
+        generate(db,{'project':p.model_dump()},folder,cancel)
         (folder/'captions.srt').write_text(captions.srt(p.captions.cues),encoding='utf-8')
         (folder/'script.txt').write_text(p.script,encoding='utf-8')
         (folder/'project.json').write_text(p.model_dump_json(indent=2),encoding='utf-8')

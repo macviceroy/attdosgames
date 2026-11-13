@@ -7,6 +7,7 @@ import signal
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from .media import run
+from filelock import FileLock, Timeout
 
 class Queue:
     def __init__(self,db):
@@ -15,7 +16,12 @@ class Queue:
         # Called only while holding the app's exclusive cross-platform FileLock.
         for job in self.db.jobs():
             if job['state'] in {'queued','running','cancelling'}:
-                self.db.state(job['id'],'interrupted',error='Servidor anterior interrompido. Revise e use Retentar.')
+                try:
+                    with FileLock(str(self.db.root/'jobs'/(job['id']+'.lock')),timeout=0):
+                        self.db.state(job['id'],'interrupted',error='Servidor anterior interrompido. Revise e use Retentar.')
+                except Timeout:
+                    # A surviving worker still owns its output directory. Keep observing it.
+                    pass
     def submit(self,kind,payload):
         job,created=self.db.enqueue(kind,payload)
         if created:self.launch(job['id'])
@@ -65,9 +71,13 @@ class Queue:
             job=self.db.job(id)
             if job['state'] not in {'failed','cancelled','interrupted','qc_failed'}:raise ValueError('Trabalho não pode ser retomado')
             import shutil
-            folder=self.db.root/'jobs'/id
-            if folder.exists():shutil.rmtree(folder)
-            self.db.state(id,'queued')
+            try:
+                with FileLock(str(self.db.root/'jobs'/(id+'.lock')),timeout=0):
+                    folder=self.db.root/'jobs'/id
+                    if folder.exists():shutil.rmtree(folder)
+                    self.db.state(id,'queued')
+            except Timeout as exc:
+                raise ValueError('Worker anterior ainda possui os arquivos; aguarde ou cancele') from exc
         self.launch(id);return self.db.job(id)
     def close(self):
         for job in self.db.jobs():

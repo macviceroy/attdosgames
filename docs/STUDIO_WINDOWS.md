@@ -52,9 +52,12 @@ acima; não é necessário alterar a política global.
    instrumentais procedurais synthwave, eletrônica ou lo-fi no próprio Studio.
 5. Salve e renderize. A prévia renderizada é o MP4 final. A prévia do original
    mostra apenas a mídia de entrada e está identificada como tal.
-6. Baixe MP4, PNG/JPEG, SRT, roteiro, metadados, projeto e relatório.
+6. Baixe MP4, PNG/JPEG, SRT, roteiro, metadados, projeto e relatório, individualmente
+   ou no ZIP. Camadas de texto têm seus próprios intervalos/posição/animação.
+   Gerar prévia da capa não exige renderizar o MP4 inteiro.
 
-A narração não é fabricada: VoiceLabs Alex requer acesso oficial autenticado.
+A narração não é fabricada: VoiceLabs Alex foi testado no conector oficial; o aplicativo local não herda
+autenticação. Use Preparar pedido VoiceLabs e importe o áudio retornado pelo Work.
 Arquivos sem voz são permitidos para edição de gameplay; QC não aprova sotaque.
 Título/descrição/hashtags são editáveis; a estrutura de roteiro local não faz
 pesquisa de notícias. Links públicos de vídeos não são baixados.

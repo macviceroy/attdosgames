@@ -63,8 +63,9 @@ class Store:
         self.project(id)
         with self.db() as db:return [{'revision':r['revision'],'project':json.loads(r['payload'])} for r in db.execute('SELECT * FROM revisions WHERE id=? ORDER BY revision DESC LIMIT 50',(id,))]
     def enqueue(self,kind,payload):
-        fingerprint=hashlib.sha256(canonical([kind,'studio-0.3.0',payload]).encode()).hexdigest()
+        fingerprint=hashlib.sha256(canonical([kind,'studio-0.3.1',payload]).encode()).hexdigest()
         with self.db() as db:
+            db.execute('BEGIN IMMEDIATE')
             existing=db.execute('SELECT id FROM jobs WHERE fingerprint=?',(fingerprint,)).fetchone()
             if existing:return self.job(existing[0]),False
             if db.execute("SELECT count(*) FROM jobs WHERE state IN ('queued','running')").fetchone()[0]>=8:

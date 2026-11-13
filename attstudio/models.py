@@ -52,6 +52,21 @@ class Cover(Model):
     y: int = Field(default=1050, ge=400, le=1250)
     size: int = Field(default=80, ge=40, le=110)
 
+class TextLayer(Model):
+    text: str = Field(min_length=1, max_length=100)
+    start: float = Field(default=0, ge=0, le=180)
+    end: float = Field(default=3, gt=0, le=180)
+    y: int = Field(default=700, ge=200, le=1200)
+    size: int = Field(default=56, ge=28, le=90)
+    color: Color = '#FF007A'
+    font: FontName = 'DejaVu Sans'
+    animation: Literal['none','fade','slide'] = 'slide'
+    @model_validator(mode='after')
+    def interval(self):
+        if self.end-self.start < .3:
+            raise ValueError('Camada de texto deve durar pelo menos 0,3 s')
+        return self
+
 class Project(Model):
     schema_version: Literal[1] = 1
     name: str = Field(min_length=1, max_length=100)
@@ -61,6 +76,7 @@ class Project(Model):
     script: str = Field(default='', max_length=10000)
     template: Literal['neon','arcade','cinema'] = 'neon'
     clips: list[Clip] = Field(min_length=1, max_length=60)
+    text_layers: list[TextLayer] = Field(default_factory=list, max_length=8)
     narration: Track | None = None
     music: Track | None = None
     original_volume: float = Field(default=1, ge=0, le=2)
@@ -76,6 +92,8 @@ class Project(Model):
     def timeline(self):
         if not .5 <= self.duration <= 180:
             raise ValueError('Duração total: 0,5 a 180 s')
+        if any(layer.end > self.duration+.001 for layer in self.text_layers):
+            raise ValueError('Camada de texto fora da linha do tempo')
         previous=0
         for cue in self.captions.cues:
             if cue.start < previous or cue.end > self.duration + .001:

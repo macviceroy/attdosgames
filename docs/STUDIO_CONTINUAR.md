@@ -1,8 +1,9 @@
 # Retomar o trabalho
 
 Branch: `feat/studio-local-editor`; base original `b2318582529033f70c5a16ee7ccc576f64ebf61c`.
-A pedido do usuário, a implementação foi encerrada para salvar uma entrega
-funcional antes de esgotar o orçamento. Não declarar todos os requisitos completos.
+Checkpoint inicial salvo no commit `b96876e`. Após esclarecer sua intenção,
+o usuário pediu continuidade da implementação; o pedido anterior de encerrar
+foi revogado. Não declarar todos os requisitos completos.
 
 ## Estado salvo
 
@@ -16,19 +17,20 @@ Adaptador ASR local opcional, HyperFrames CLI opcional. Nenhuma publicação.
 
 1. Executar instalação, importação, cancelamento e render em Windows10/11;
    verificar AMD AMF com a GPU do usuário. O ambiente atual é Linux/CPU.
-2. Testar WAV/MP3 da voz Alex autorizado e SRT revisado. Conectar VoiceLabs
-   somente com API/MCP oficialmente suportado, acesso à voz e autenticação
-   explícita; nenhuma credencial está disponível aqui. Não pedir tokens no chat.
+2. VoiceLabs Alex já foi gerado via conector oficial e testado no fluxo local.
+   Concluir revisão auditiva e termos de uso; manter tokens fora do aplicativo/Git.
+   A UI exporta pedidos para Work e aceita áudio importado. Autenticação direta
+   do Python ainda exige configuração externa oficial; não pedir tokens no chat.
 3. Melhorar ASR com modelo local maior e corpus pt-BR autorizado; medir erros,
    revisar palavras e considerar alinhamento WhisperX em ambiente separado.
-4. Expandir timeline: camadas de texto e keyframes, drag-and-drop multipista,
+4. Camadas temporizadas já implementadas. Expandir timeline com keyframes e drag-and-drop multipista,
    preview de baixa resolução, xfade; manter um contrato Project e FFmpeg único.
 5. Integrar beat grid opcional por sugestões, respeitando silêncio/contexto.
 6. Avaliar semântica local/LLM com memória e licença adequadas. A heurística
    atual não entende eventos de gameplay; jamais alegar viralização garantida.
 7. Integrar motion HTML ao fluxo visual, depois de revisar dependências/licenças;
    nunca aceitar HTML/JS arbitrário do frontend. CLI já gera um asset importável.
-8. Melhorar gestão de disco (limpeza/remoção/backup/export ZIP) e isolamento caso
+8. ZIP já implementado. Melhorar gestão de disco (limpeza/remoção/backup) e isolamento caso
    haja futura hospedagem. Servidor atual é apenas loopback e um usuário.
 
 As 22 decisões/licenças/commits estão em `STUDIO_REPOSITORIOS.md` e JSON de auditoria.

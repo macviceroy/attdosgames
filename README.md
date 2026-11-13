@@ -12,10 +12,10 @@ uv run --locked attstudio
 Abra http://127.0.0.1:8765. [Windows e uso](docs/STUDIO_WINDOWS.md) ·
 [Auditoria](docs/STUDIO_AUDITORIA.md) · [22 repositórios avaliados](docs/STUDIO_REPOSITORIOS.md) ·
 [Arquitetura e pendências](docs/STUDIO_ARQUITETURA.md) ·
-[Testes reais](docs/STUDIO_TESTES.md) · [Vídeos e capturas](examples/studio/).
+[Testes reais](docs/STUDIO_TESTES.md) · [Vídeos e capturas](examples/studio/) · [VoiceLabs e Work](docs/STUDIO_VOICELABS_WORK.md).
 
-**Limites:** Windows/AMD precisam de teste na máquina final; VoiceLabs não está
-conectado; ASR exige revisão; não há análise semântica nem publicação automática.
+**Limites:** Windows/AMD precisam de teste na máquina final; VoiceLabs foi testado pelo
+conector oficial, mas o Python local não herda credenciais; ASR exige revisão; não há análise semântica nem publicação automática.
 O frontend da imagem original não estava no repositório. A nova interface foi
 acrescentada preservando os módulos anteriores documentados abaixo.
 

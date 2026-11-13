@@ -5,6 +5,12 @@ from .store import Store
 from .media import Cancelled
 
 def execute(root,id):
+    from filelock import FileLock
+    db=Store(root)
+    with FileLock(str(db.root/'jobs'/(id+'.lock')),timeout=0):
+        _execute(root,id)
+
+def _execute(root,id):
     db=Store(root);job=db.job(id);folder=db.root/'jobs'/id;folder.mkdir(exist_ok=True);cancel=folder/'cancel'
     with db.db() as con:
         claimed=con.execute("UPDATE jobs SET state='running' WHERE id=? AND state='queued'",(id,)).rowcount
@@ -14,6 +20,9 @@ def execute(root,id):
         if job['kind']=='render':
             from .render import render
             result=render(db,job['payload'],folder,cancel)
+        elif job['kind']=='cover':
+            from .covers import generate
+            result=generate(db,job['payload'],folder,cancel)
         elif job['kind']=='analyze':
             from .analysis import analyze
             result=analyze(db,job['payload'],folder,cancel)

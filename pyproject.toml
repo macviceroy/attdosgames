@@ -1,6 +1,6 @@
 [project]
 name = "att-dos-games"
-version = "0.2.0"
+version = "0.3.1"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "espeakng-loader==0.2.4",

@@ -1,0 +1,65 @@
+{
+  "provider": "VoiceLabs",
+  "profile": "ATT DOS GAMES - Brasileiro Alex",
+  "official_tools_tested": [
+    "list_voice_profiles",
+    "list_granted_scopes",
+    "speak",
+    "get_generation"
+  ],
+  "connector_authenticated": true,
+  "python_credentials_available": false,
+  "language": "pt",
+  "requested_locale": "pt-BR",
+  "accent_review": "pending",
+  "commercial_terms_verified": false,
+  "public_audio_upload": false,
+  "duration": 20,
+  "phrase_cues": [
+    {
+      "start": 0.2,
+      "end": 3.02,
+      "text": "Seu vídeo merece uma edição com a sua identidade."
+    },
+    {
+      "start": 5.2,
+      "end": 8.92,
+      "text": "No ATT dos Games Studio, você escolhe os cortes e o visual."
+    },
+    {
+      "start": 10.2,
+      "end": 13.799999999999999,
+      "text": "Adicione sua narração, ajuste a música e revise as legendas."
+    },
+    {
+      "start": 15.2,
+      "end": 18.86,
+      "text": "Confira a prévia e baixe o vídeo pronto. Você controla cada etapa."
+    }
+  ],
+  "audio_sha256": "b809ccad0da7e79b784a4e500837aa72461579201cc8ab91d50a3a774f921f15",
+  "video_sha256": "64b25f96f7fda929b7bc8e51746477c4e7f20add12afed3dd5db0da91e6f40d2",
+  "quality": {
+    "technical_pass": true,
+    "checks": {
+      "decode": true,
+      "resolution": true,
+      "codecs": true,
+      "duration": true,
+      "audio_timeline": true,
+      "srt_matches_project": true,
+      "no_unexpected_black": true,
+      "audible_audio": true,
+      "no_peak_clipping": true
+    },
+    "peak_db": -3.9,
+    "black_intervals": [],
+    "human_review": [
+      "Sotaque pt-BR e pronúncia",
+      "Correspondência de cada palavra ao áudio",
+      "Legibilidade no telefone",
+      "Conteúdo e direitos"
+    ],
+    "publication_allowed": false
+  }
+}

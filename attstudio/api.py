@@ -122,6 +122,23 @@ def create_app(root=None):
         p=db.project(id);validate_project(db,Project.model_validate(p['project']))
         # Fingerprint omits revision: undoing to identical settings reuses the same output.
         return queue.submit('render',{'project_id':id,'project':p['project']})
+    @app.get('/api/projects/{id}/voice-request')
+    def voice_request(id:str):
+        from .voice import request_for
+        from fastapi.responses import Response
+        p=db.project(id)
+        content=json.dumps(request_for(p['project']['script']),ensure_ascii=False,indent=2)
+        return Response(content,media_type='application/json',headers={'Content-Disposition':'attachment; filename=voicelabs-request.json'})
+    @app.post('/api/projects/{id}/cover')
+    def cover(id:str):
+        p=db.project(id);validate_project(db,Project.model_validate(p['project']))
+        return queue.submit('cover',{'project_id':id,'project':p['project']})
+    @app.get('/api/jobs/{id}/download')
+    def download_bundle(id:str):
+        from .archive import bundle
+        from starlette.background import BackgroundTask
+        path=bundle(db,id)
+        return FileResponse(path,media_type='application/zip',filename=f'att-studio-{id[:8]}.zip',background=BackgroundTask(path.unlink,missing_ok=True))
     @app.post('/api/projects/{id}/command')
     def command(id:str,body:Command):
         from .commands import propose

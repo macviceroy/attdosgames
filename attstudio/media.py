@@ -61,6 +61,7 @@ def inspect_upload(path,kind):
 def validate_project(db,p):
     from .fonts import path
     path(p.captions.font);path(p.cover.font)
+    for layer in p.text_layers:path(layer.font)
     for c in p.clips:
         a=db.asset(c.asset)
         if a['kind']!='video' or c.end>a['duration']+.03:raise ValueError('Trecho fora da mídia de vídeo')

@@ -39,14 +39,15 @@ somente texto escapado e template do pacote. Não renderize HTML de terceiros.
 ## O que ainda não está pronto
 
 - Validação prática em Windows10/11 e AMD Radeon; testes feitos em Linux/CPU.
-- VoiceLabs Alex, regeneração TTS e revisão auditiva; faltam acesso oficial,
-  autenticação, identificação da voz e permissão de geração. Nenhuma herança de
-  credenciais do ChatGPT. WAV/MP3 importado funciona.
+- VoiceLabs Alex foi testado pelo conector oficial desta sessão. O adaptador MCP
+  aceita sessão autenticada fornecida por um host; a UI exporta pedido para o Work.
+  Autenticação TTS direta no Python local e revisão auditiva continuam pendentes.
+  Não há herança de tokens do ChatGPT. Veja STUDIO_VOICELABS_WORK.md.
 - Sem pesquisa factual, LLM semântico local, agentes gerais, seleção por eventos
   de gameplay, reconhecimento de rostos ou promessa de viralização.
 - Transcrição automática exata não garantida. Tiny errou a amostra; alinhamento
   WhisperX/diarização adiado. Legendas/SRT devem ser revisados contra a fala.
-- Histórico não é editor multipista completo: um título inicial, legendas,
+- Histórico não é editor multipista completo: um título inicial, até oito camadas de texto temporizadas, legendas,
   clipes sequenciais e três fontes de áudio; sem drag-and-drop multipista,
   keyframes arbitrários, transições xfade com sobreposição ou ajuste de velocidade.
 - Música procedural é simples; não é catálogo comercial nem trilha profissional
@@ -56,8 +57,12 @@ somente texto escapado e template do pacote. Não renderize HTML de terceiros.
   no navegador. Exportação com alpha e integração como overlay avançado pendentes.
 - Direitos de upload são declarações do usuário registradas com hash, não
   comprovação documental automática. QC técnico não prova qualidade audiovisual.
-- Sem exportZIP pelo navegador (downloads individuais), quotas por usuário,
+- ZIP de entrega implementado, sem entradas/logs/bancos; faltam quotas por usuário,
   criptografia de disco ou serviço público hospedado. Apagar projetos/GC de assets
   órfãos não possui interface; backups e manutenção do diretório são locais.
 - Nenhuma rede social recebe conteúdo. Integração Work/Metricool anterior continua
   em entrega/dry-run; não foi conectada nesta evolução.
+
+Após o checkpoint inicial: capas independentes e finais usam o mesmo gerador;
+revisão por pixel confirmou intervalos das camadas. Lock por worker impede
+retentativa de sobrescrever um processo sobrevivente ao reinício do servidor.

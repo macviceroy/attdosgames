@@ -229,4 +229,4 @@ Nenhum código dos projetos avaliados foi copiado para os módulos Python/JS nov
 
 FFmpeg é executado como programa externo, não distribuído. A build usada contém libx264/GPL; o instalador Windows apenas verifica PATH. A licença de software não autoriza músicas, jogos, vídeos, vozes nem marcas. Declarações de upload são registradas, mas não constituem verificação jurídica independente.
 
-Não há necessidade de vidIQ, Descript, cartão ou API paga. VoiceLabs continua desconectado; não se usa voz substituta no Studio.
+Não há necessidade de vidIQ, Descript, cartão ou API paga. Na auditoria inicial VoiceLabs estava indisponível. Na continuação, o conector oficial permitiu testar a voz Alex; o Python local não herda credenciais. Não há voz substituta.

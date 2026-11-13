@@ -118,3 +118,26 @@ def test_cancel_queued_and_retry(client,video):
 def test_motion_title_validation(tmp_path):
     from attstudio.motion import create
     with pytest.raises(ValueError):create('x'*71,tmp_path/'video.mp4')
+
+def test_concurrent_job_requests_share_id(tmp_path):
+    from concurrent.futures import ThreadPoolExecutor
+    db=Store(tmp_path)
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        jobs=list(pool.map(lambda _:db.enqueue('render',{'same':'payload'}),range(16)))
+    assert len({job['id'] for job,_ in jobs})==1
+    assert sum(created for _,created in jobs)==1
+
+def test_recovery_does_not_steal_live_worker(tmp_path):
+    from filelock import FileLock
+    from attstudio.jobs import Queue
+    db=Store(tmp_path);j,_=db.enqueue('render',{'x':1});db.state(j['id'],'running')
+    queue=Queue(db)
+    lock=FileLock(str(db.root/'jobs'/(j['id']+'.lock')))
+    with lock:
+        queue.recover()
+        assert db.job(j['id'])['state']=='running'
+        db.state(j['id'],'interrupted')
+        with pytest.raises(ValueError,match='ainda possui'):queue.retry(j['id'])
+    queue.recover()
+    assert db.job(j['id'])['state']=='interrupted'
+    queue.close()
