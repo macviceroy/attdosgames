@@ -3,7 +3,7 @@ import json
 import sqlite3
 import uuid
 from pathlib import Path
-from contextlib import contextmanager
+from contextlib import closing, contextmanager
 
 def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',',':'))
@@ -26,9 +26,12 @@ class Store:
             ''')
     @contextmanager
     def db(self):
-        with sqlite3.connect(self.root/'studio.sqlite3', timeout=30) as db:
-            db.row_factory=sqlite3.Row
-            yield db
+        # Connection.__exit__ commits/rolls back but does not close SQLite.
+        # Explicit closure also releases the database file on Windows.
+        with closing(sqlite3.connect(self.root/'studio.sqlite3', timeout=30)) as db:
+            with db:
+                db.row_factory=sqlite3.Row
+                yield db
     def asset(self, id):
         with self.db() as db:r=db.execute('SELECT payload FROM assets WHERE id=?',(id,)).fetchone()
         if r is None:raise KeyError('Mídia não encontrada')
