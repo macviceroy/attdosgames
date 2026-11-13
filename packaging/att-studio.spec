@@ -20,7 +20,7 @@ exe=EXE(
     pyz,a.scripts,[],exclude_binaries=True,
     name='ATT-DOS-GAMES-Studio',
     debug=False,bootloader_ignore_signals=False,strip=False,upx=False,
-    console=False,disable_windowed_traceback=False,
+    console=False,disable_windowed_traceback=True,
 )
 coll=COLLECT(exe,a.binaries,a.datas,strip=False,upx=False,
              name='ATT-DOS-GAMES-Studio')

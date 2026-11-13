@@ -42,6 +42,11 @@ def self_test() -> None:
             raise RuntimeError(f"Self-test falhou: {completed['state']} {completed.get('error')}")
         media=probe(output);video=next(s for s in media['streams'] if s['codec_type']=='video')
         assert (video['width'],video['height'])==(1080,1920)
-        print(json.dumps({'ok':True,'ffmpeg':executable('ffmpeg'),'ffprobe':executable('ffprobe'),
-                          'worker':'frozen' if getattr(sys,'frozen',False) else 'python',
-                          'output_sha256':digest(output)},ensure_ascii=False))
+        result={'ok':True,'ffmpeg':executable('ffmpeg'),'ffprobe':executable('ffprobe'),
+                'worker':'frozen' if getattr(sys,'frozen',False) else 'python',
+                'output_sha256':digest(output)}
+        # A PyInstaller windowed executable has no stdout. Calling print there
+        # raises after a successful render and Windows displays a hidden modal
+        # traceback in headless CI.
+        if sys.stdout is not None:
+            print(json.dumps(result,ensure_ascii=False))
