@@ -1,14 +1,13 @@
 """Offline smoke test used by the packaged Windows executable."""
 import json
 import shutil
-import subprocess
 import sys
 import tempfile
 from pathlib import Path
 
 from .media import digest, ff, inspect_upload, probe
 from .models import Project
-from .runtime import executable, resource, worker_command
+from .runtime import executable, resource
 from .store import Store, uid
 
 
@@ -31,10 +30,15 @@ def self_test() -> None:
         project=Project(name='Windows self-test',title='ATT Studio',
                         clips=[{'asset':asset_id,'start':0,'end':1}])
         job,_=db.enqueue('render',{'project_id':'self-test','project':project.model_dump()})
-        result=subprocess.run(worker_command(db.root,job['id']),timeout=180)
+        # Execute the same worker entry point in-process for the package smoke
+        # test. The production queue still launches it as an isolated child;
+        # avoiding a nested windowed executable here also prevents Windows from
+        # hiding a self-test traceback behind a modal dialog in headless CI.
+        from .worker import execute
+        execute(db.root,job['id'])
         completed=db.job(job['id'])
         output=db.root/'jobs'/job['id']/'video.mp4'
-        if result.returncode or completed['state']!='completed' or not output.is_file():
+        if completed['state']!='completed' or not output.is_file():
             raise RuntimeError(f"Self-test falhou: {completed['state']} {completed.get('error')}")
         media=probe(output);video=next(s for s in media['streams'] if s['codec_type']=='video')
         assert (video['width'],video['height'])==(1080,1920)
