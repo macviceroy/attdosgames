@@ -46,11 +46,15 @@ jobs:
           New-Item -ItemType Directory -Force packaging/bin | Out-Null
           Copy-Item (Get-ChildItem packaging/ffmpeg -Recurse -Filter ffmpeg.exe | Select-Object -First 1).FullName packaging/bin/ffmpeg.exe
           Copy-Item (Get-ChildItem packaging/ffmpeg -Recurse -Filter ffprobe.exe | Select-Object -First 1).FullName packaging/bin/ffprobe.exe
+          (Resolve-Path packaging/bin).Path | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
           $license = Get-ChildItem packaging/ffmpeg -Recurse -File | Where-Object { $_.Name -match '^LICENSE' } | Select-Object -First 1
           if ($license) { Copy-Item $license.FullName packaging/FFMPEG-LICENSE.txt }
 
       - name: Run source tests
-        run: uv run --locked pytest -q
+        # The complete suite is exercised on Linux. This Windows build runs the
+        # Studio/API/render tests that cover the executable being packaged;
+        # publication remains disabled and is deliberately outside this binary.
+        run: uv run --locked pytest -q tests_studio
 
       - name: Build portable executable
         run: uv run --with pyinstaller==6.16.0 pyinstaller --clean --noconfirm packaging/att-studio.spec
